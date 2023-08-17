@@ -18,13 +18,20 @@ body{
     padding: 40px;
 }
 
-.header-title h1{
+.header-title h1 {
     font-family: 'Blanka Regular';
     font-size: 5vw;
     font-weight: bold;
     margin-right: 20px;
     color: navy;
     letter-spacing: 2px;
+}
+
+.social-icons{
+  align-items: center;
+  margin-right: -50%;
+  font-size: 40px;
+  text-decoration: none;
 }
 
 
@@ -36,10 +43,9 @@ body{
 
 .dropdown {
     position: absolute;
-    right: 8%;
-    top: 10%;
+    left: 10%;
+    top: 11%;
     display: inline-block; 
-    margin-right: 5vw;
   }
   
   .dropdown-toggle {
@@ -112,7 +118,6 @@ body{
 
     .dropdown{
       right: 5%;
-      margin-right: 3vw;
     }
     .dropdown-menu{
       right: -80px;

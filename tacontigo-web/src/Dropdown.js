@@ -44,7 +44,7 @@ function Dropdown() {
           <a href="/about">Menu</a>
         </li>
         <li>
-          <a href="/services">Contact</a>
+          <a href="/services">About</a>
         </li>
       </ul>
     </div>
