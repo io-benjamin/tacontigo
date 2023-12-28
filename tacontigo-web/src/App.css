@@ -5,17 +5,11 @@ body{
     background-color: #F0EAD6;
 }
 
-.app{
-    text-align: center;
-    min-width: 320px;
-}
-
-.header{
+.header-title{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: transparent;
-    padding: 40px;
+    padding: 0 20px;
 }
 
 .header-title h1 {
@@ -27,34 +21,71 @@ body{
     letter-spacing: 2px;
 }
 
+/* Socials */
+
 .social-icons{
-  align-items: center;
-  margin-right: -50%;
   font-size: 40px;
-  text-decoration: none;
 }
 
 
 /* Dropdown.css */
 
-.header-toggle{
-    padding: 20px;
-}
-
-.dropdown {
-    position: absolute;
-    left: 10%;
-    top: 11%;
-    display: inline-block; 
-  }
+  .dropdown {
+      position: relative;
+    }
   
   .dropdown-toggle {
-    padding: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
   
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dropdown-menu li{
+    font-weight: bold;
+    color: #333;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    /* padding: 0;
+    margin: 0; */
+  }
+
+  .dropdown-menu li:hover {
+    background-color: #f1f1f1;
+    color: #fff; 
+  }
+
+  .dropdown.open .dropdown-menu {
+    opacity: 1;
+    display: block;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 15px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -82,35 +113,6 @@ body{
     transform: translateY(-6px) rotate(-45deg);
   }
 
-  .dropdown-menu {
-    position: absolute;
-    right: 0;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .dropdown.open .dropdown-menu {
-    opacity: 1;
-    display: block;
-  }
-  
-  .dropdown-menu a {
-    display: block;
-    padding: 18px;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .dropdown-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
   @media screen and (max-width: 768px) {
     .header-title h1{
       font-size: 6vw;
@@ -121,8 +123,5 @@ body{
     }
     .dropdown-menu{
       right: -80px;
-    }
-    
+    } 
   }
-  
-/* */

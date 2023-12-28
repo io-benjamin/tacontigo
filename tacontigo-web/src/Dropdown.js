@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './App.css';
 
 function Dropdown() {
@@ -27,6 +28,11 @@ function Dropdown() {
     setIsOpen(false);
   };
 
+  const handleLinkClick = (event) => {
+    event.stopPropagation(); // Stop event propagation
+    closeDropdown();
+  };
+
   return (
     <div className={`dropdown ${isOpen ? 'open' : ''}`} ref={dropdownRef}>
       <button className="dropdown-toggle" onClick={toggleDropdown}>
@@ -37,14 +43,14 @@ function Dropdown() {
         </div>
       </button>
       <ul className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
-        <li>
-          <a href="/">Home</a>
+        <li onClick={handleLinkClick}>
+          <Link to="/">Home</Link> 
         </li>
-        <li>
-          <a href="/about">Menu</a>
+        <li onClick={handleLinkClick}>
+          <Link to="/Menu">Menu</Link> 
         </li>
-        <li>
-          <a href="/services">About</a>
+        <li onClick={handleLinkClick}>
+          <Link to="/About">About</Link> 
         </li>
       </ul>
     </div>
