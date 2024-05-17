@@ -47,7 +47,7 @@ function Dropdown() {
           <Link to="/"onClick={handleLinkClick}>Home</Link> 
         </li>
         <li>
-          <a href="https://food.google.com/chooseprovider?restaurantId=/g/11khc34gc1&g2lbs=AOHF13kQZuc--lAg0FKcLhzbXbTzXPXztNUaC3FmZUm2sRcxuJqIKfk9w5OtJLMMCLLDcbTERX_hCezKS51GJgExLaPbGmp6GBm11OAkwdrlBbPVxBxmLtc%3D&hl=en-US&gl=us&ssta=1&fo_m=MfohQo559jFvMUOzJVpjPL1YMfZ3bInYwBDuMfaXTPp5KXh-&gei=2RRGZtLPPOeu5NoP2cWAqAk&ei=2RRGZtLPPOeu5NoP2cWAqAk&opi=89978449&foub=mcpp&sa=X&sei=CTC0p_aKX3KsEXwlyb0gvi0x&utm_campaign&utm_source=search&showAllProvidersList=0&ved&addressId&orderType=2&partnerId=11344137403575542233&fulfillmentTime=GgwKBgjI2ZmyBhD_4AE&menuSearchQuery&cartId=GAEiGFJhLVVMaVdVUVk2S2VQb19fQWt1c0E9PQ%3D%3D&fo_s=OA&dineInLocationId" target="_blank" onClick={handleLinkClick}>Order</a>
+          <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" onClick={handleLinkClick}>Order</a>
         </li>
         <li>
           <Link to="/Menu"onClick={handleLinkClick}>Menu</Link> 

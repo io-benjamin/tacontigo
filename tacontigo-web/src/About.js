@@ -32,6 +32,8 @@ function About() {
       document.removeEventListener('click', handleOutsideClick);
     };
   }, [selectedImage]);
+
+  
   return (
     <div className="About-content">
       <div className="About-inner">

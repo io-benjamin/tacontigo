@@ -105,4 +105,10 @@ input[type="submit"]:hover {
       margin: 20px;
       max-width: fit-content;
     }
-  }
+    .contact-form {
+        width: 80%; /* Adjust the width as needed */
+        max-width: none; /* Remove the max-width restriction */
+        margin: 20px auto; /* Center the form horizontally with some margin */
+        margin-left: 2%;
+    }
+}
