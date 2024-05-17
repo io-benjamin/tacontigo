@@ -19,10 +19,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "expo start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "PUBLIC_URL=\"https://io-benjamin.github.io/tacontigo/\" npx expo export:web",
-    "deploy": "gh-pages -d web-build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
