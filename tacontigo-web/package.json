@@ -18,10 +18,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "expo start",
+    "predeploy": "npx expo export:web",
+    "deploy": "gh-pages -d web-build"
   },
   "eslintConfig": {
     "extends": [
