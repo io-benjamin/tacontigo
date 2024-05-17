@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import './App.css';
 
 function Dropdown() {
@@ -42,23 +42,25 @@ function Dropdown() {
           <span className="line"></span>
         </div>
       </button>
-      <ul className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
-        <li>
-          <Link to="/"onClick={handleLinkClick}>Home</Link> 
-        </li>
-        <li>
-          <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" onClick={handleLinkClick}>Order</a>
-        </li>
-        <li>
-          <Link to="/Menu"onClick={handleLinkClick}>Menu</Link> 
-        </li>
-        <li>
-          <Link to="/About"onClick={handleLinkClick}>About</Link> 
-        </li>
-        <li>
-          <Link to="/Contact"onClick={handleLinkClick}>Contact</Link>
-        </li>
-      </ul>
+      {isOpen && ( /* Conditionally render the dropdown menu only if isOpen is true */
+        <ul className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
+          <li>
+            <Link to="/" onClick={handleLinkClick}>Home</Link> 
+          </li>
+          <li>
+            <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" rel="noreferrer" onClick={handleLinkClick}>Order</a>
+          </li>
+          <li>
+            <Link to="/Menu" onClick={handleLinkClick}>Menu</Link> 
+          </li>
+          <li>
+            <Link to="/About" onClick={handleLinkClick}>About</Link> 
+          </li>
+          <li>
+            <Link to="/Contact" onClick={handleLinkClick}>Contact</Link>
+          </li>
+        </ul>
+      )}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import Footer from './footer.js';
 
+
 function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
