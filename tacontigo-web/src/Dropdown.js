@@ -50,9 +50,9 @@ function Dropdown() {
           <li>
             <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" rel="noreferrer" onClick={handleLinkClick}>Order</a>
           </li>
-          <li>
-            <Link to="/Menu" onClick={handleLinkClick}>Menu</Link> 
-          </li>
+          {/* <li> */}
+            {/* <Link to="/Menu" onClick={handleLinkClick}>Menu</Link>  */}
+          {/* </li> */}
           <li>
             <Link to="/About" onClick={handleLinkClick}>About</Link> 
           </li>

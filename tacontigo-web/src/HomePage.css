@@ -37,10 +37,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1000px;
+  width: 80%;
   height: 120%;
   margin-top: -2%;
-  margin-left: 23.5%;
+  margin-left: 9.7%;
   background-image: url('/Users/estradab/Projects/tacontigo/tacontigo-web/public/patterns/pattern2.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -159,14 +159,14 @@ body {
 
 .prev-button {
   position: absolute;
-  left: 20%; /* Adjust position as needed */
+  left: 18%; /* Adjust position as needed */
   top: 50%;
   transform: translateY(-50%);
 }
 
 .next-button {
   position: absolute;
-  right: 20%; /* Adjust position as needed */
+  right: 18%; /* Adjust position as needed */
   top: 50%;
   transform: translateY(-50%);
 }
@@ -181,33 +181,27 @@ body {
     margin-top: 10%; /* Adjust spacing */
   }
 
-  .image-container {
-    flex-direction: column;
-    padding: 0;
-  }
-
   .pattern {
-    width: 100%;
+    width: 110%;
     height: 100%;
-    margin-left: 0;
+    margin-left: -10%;
   }
 
   .image-wrapper {
-    margin-right: 0;
+    margin-left: 17.5%;
     margin-bottom: 10px;
-    width: 50%;
-    margin-right: 5%;
+    width: 100%;
     position: relative;
   }
 
   .image-wrapper .overlay {
     position: absolute; /* Adjusted position for overlay */
     top: 49.5%; /* Center vertically */
-    left: 50%; /* Center horizontally */
+    left: 38.2%; /* Center horizontally */
+    width: 75%; /* Adjusted width */
+    height: 94%; /* Auto height */
+    margin-left: 2.5%;
     transform: translate(-50%, -50%); /* Center the overlay */
-    width: 100%; /* Adjusted width */
-    height: 92%; /* Auto height */
-    margin-left: 5%;
     opacity: 0; /* Reduced opacity */
     transition: opacity 0.2s ease;
     text-align: center;
@@ -256,3 +250,5 @@ body {
     margin-right: -10%;
   }
 }
+
+

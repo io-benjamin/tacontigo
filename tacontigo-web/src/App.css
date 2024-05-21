@@ -1,8 +1,9 @@
-body{
+/* App.css */
+body {
   background-color: #FFFBFB;
 }
 
-body::before{
+body::before {
   content: "";
   position: fixed;
   top: 0;
@@ -13,50 +14,57 @@ body::before{
   border-right: 18px solid darkblue;
   pointer-events: none;
   z-index: 1000;
-} 
+}
 
-.banner{
+.banner {
   align-items: center;
 }
 
-.header{
+.header-title h1{
+  margin-left: 6%;
+}
+
+.header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
 }
 
-.header-title{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 90px;
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 90px;
 }
 
 .header-title h1 {
-    font-family: 'Blanka Regular';
-    font-size: 100px;
-    font-weight: bold;
-    margin-right: 20px;
-    color: navy;
-    letter-spacing: 2px;
+  font-family: 'Blanka Regular';
+  font-size: 100px;
+  font-weight: bold;
+  margin-right: 20px;
+  color: navy;
+  letter-spacing: 2px;
 }
 
-a{
+.banner-link {
+  text-decoration: none;
+  color: inherit; /* Inherit the color from the parent h1 */
+}
+
+
+a {
   text-decoration: none;
 }
 
 /* Socials */
-
-.social-icons{
+.social-icons {
   font-size: 40px;
 }
 
-
 /* Dropdown.css */
-
 .dropdown {
-    position: relative;
+  position: relative;
 }
 
 .dropdown-toggle {
@@ -76,7 +84,7 @@ a{
   margin: 0;
 }
 
-.dropdown-menu li{
+.dropdown-menu li {
   background-color: #fff;
   padding: 15px 20px;
   display: block;
@@ -84,7 +92,7 @@ a{
 
 .dropdown-menu li:hover {
   background-color: #f1f1f1;
-  color: #fff; 
+  color: #fff;
 }
 
 .dropdown.open .dropdown-menu {
@@ -141,8 +149,8 @@ a{
   }
 
   .header-title h1 {
-    font-size: 24px; /* Adjust font size for smaller screens */
-    margin-right: 10%;
+    font-size: 28px; /* Adjust font size for smaller screens */
+    margin-right: -0%;
   }
 
   .social-icons {

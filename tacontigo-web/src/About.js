@@ -55,7 +55,7 @@ function About() {
           <img src="/event-images/event4.jpeg" alt='event 4' onClick={() => openModal("/event-images/event4.jpeg")}/>
           <img src="/event-images/event5.jpeg" alt='event 5' onClick={() => openModal("/event-images/event5.jpeg")}/>
     </div>
-    <div className='About-inner'>
+    <div className='About-inquiry'>
     <a href="/Contact">
       <h1>Inquiry about our trucks!</h1>
     </a>

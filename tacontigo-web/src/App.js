@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use Routes instead of Switch
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Use Link from react-router-dom
 import HomePage from "./HomePage";
 import Dropdown from "./Dropdown";
 import Menu from "./Menu"; // Import the Menu component
@@ -16,9 +16,9 @@ function App() {
         <header className="app">
           <div className="header-title">
             <Dropdown />
-            <a href="/">
-              <h1 className="banner">TACONTIGO</h1>
-            </a>
+            <h1 className="banner">
+              <Link to="/" className="banner-link">TACONTIGO</Link>
+            </h1>
             <div className="social-icons">
               <a href="https://www.instagram.com/RVATacontigo"><FontAwesomeIcon icon={faInstagram} style={{color: 'red'}} /></a>
               <a href="https://www.facebook.com/profile.php?id=100090290297929"><FontAwesomeIcon icon={faFacebook} style={{color: 'red'}} /></a>
