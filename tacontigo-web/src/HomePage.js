@@ -43,7 +43,7 @@ function HomePage() {
     }, 7500); // Change slide every 7.5 seconds
 
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [images.length]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % images.length);
@@ -98,7 +98,7 @@ function HomePage() {
       <text className='food-text2'>Tacos that go wherever you go!</text>
 
       <div className="order-button-container">
-        <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank">
+        <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" rel="noopener noreferrer">
           <button className="button-74" type="button">Order Now!</button>
         </a>
       </div>

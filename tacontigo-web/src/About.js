@@ -66,7 +66,7 @@ function About() {
         <div className="modal-about">
           <div className="modal-content-about">
             <span className="close" onClick={closeModal}>&times;</span>
-            <img src={selectedImage} alt="Selected Image" />
+            <img src={selectedImage} alt="Selected" />
           </div>
         </div>
       )}
