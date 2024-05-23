@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/tacontigo">
       <div>
         <header className="app">
           <div className="header-title">
