@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tacontigo/static/css/main.0d433769.css",
-    "main.js": "/tacontigo/static/js/main.85775f3c.js",
+    "main.js": "/tacontigo/static/js/main.ec3298b8.js",
     "static/js/453.69f3745b.chunk.js": "/tacontigo/static/js/453.69f3745b.chunk.js",
     "static/media/pattern2.jpeg": "/tacontigo/static/media/pattern2.85b2d1cde0102cf91abb.jpeg",
     "static/media/Blanka-Regular.woff": "/tacontigo/static/media/Blanka-Regular.7cf6d8980ba0c179438b.woff",
@@ -11,11 +11,11 @@
     "static/media/slick.woff": "/tacontigo/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/tacontigo/index.html",
     "main.0d433769.css.map": "/tacontigo/static/css/main.0d433769.css.map",
-    "main.85775f3c.js.map": "/tacontigo/static/js/main.85775f3c.js.map",
+    "main.ec3298b8.js.map": "/tacontigo/static/js/main.ec3298b8.js.map",
     "453.69f3745b.chunk.js.map": "/tacontigo/static/js/453.69f3745b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0d433769.css",
-    "static/js/main.85775f3c.js"
+    "static/js/main.ec3298b8.js"
   ]
 }
