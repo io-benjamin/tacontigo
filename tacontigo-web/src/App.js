@@ -16,7 +16,7 @@ function App() {
     navigate('/'); // Redirect to the home page
   }, [navigate]);
   return (
-    <Router basename="/tacontigo">
+    <Router>
       <div>
         <header className="app">
           <div className="header-title">
