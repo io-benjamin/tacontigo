@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom'; // Use Link from react-router-dom
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Use Link from react-router-dom
 import HomePage from "./HomePage";
 import Dropdown from "./Dropdown";
 import Menu from "./Menu"; // Import the Menu component
@@ -10,13 +10,8 @@ import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
 
 function App() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate('/'); // Redirect to the home page
-  }, [navigate]);
   return (
-    <Router>
+    <Router basename="/tacontigo">
       <div>
         <header className="app">
           <div className="header-title">

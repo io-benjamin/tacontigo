@@ -1,5 +1,7 @@
 {
-  "homepage": "https://io-benjamin.github.io/tacontigo/",
+  "name": "tacontigo-web",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
