@@ -41,7 +41,7 @@ body {
   height: 120%;
   margin-top: -2%;
   margin-left: 9.7%;
-  background-image: url('/Users/estradab/Projects/tacontigo/tacontigo-web/public/patterns/pattern2.jpeg');
+  background-image: url('/Users/estradab/Projects/tacontigo/tacontigo-web/src/assets/patterns/pattern2.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -226,7 +226,7 @@ body {
     margin-top: -8%;
     margin-left: 14%;
   }
-
+  
   .button-74 {
     margin-top: 20px; /* Adjust spacing */
     padding: 10px 25px; /* Adjust padding */

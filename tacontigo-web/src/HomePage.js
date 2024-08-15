@@ -1,24 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import Footer from './footer.js';
+import image20 from './assets/food-images/20.jpg';
+import image4 from './assets/food-images/4.jpg';
+import image12 from './assets/food-images/12.jpg';
+import image19 from './assets/food-images/19.jpg';
+import image6 from './assets/food-images/6.jpg';
+import image14 from './assets/food-images/14.jpg';
+import image8 from './assets/food-images/8.jpg';
+import image11 from './assets/food-images/11.jpg';
+import image9 from './assets/food-images/9.jpg';
+import image15 from './assets/food-images/15.jpg';
+import image18 from './assets/food-images/18.jpg';
+import image2 from './assets/food-images/2.jpg';
+import image5 from './assets/food-images/5.jpg';
 
 
 function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
-    "/food-images/20.jpg",
-    "/food-images/4.jpg",
-    "/food-images/12.jpg",
-    "/food-images/19.jpg",
-    "/food-images/6.jpg",
-    "/food-images/14.jpg",
-    "/food-images/8.jpg",
-    "/food-images/11.jpg",
-    "/food-images/9.jpg",
-    "/food-images/15.jpg",
-    "/food-images/18.jpg",
-    "/food-images/2.jpg",
-    "/food-images/5.jpg"
+    image20,
+    image4,
+    image12,
+    image19,
+    image6,
+    image14,
+    image8,
+    image11,
+    image9,
+    image15,
+    image18,
+    image2,
+    image5
   ];
 
   const foodNames = [
@@ -36,6 +49,7 @@ function HomePage() {
     'Tacos de Asada',
     'Tacos de Birria con Queso'
   ];
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -86,26 +100,26 @@ function HomePage() {
 
   return (
     <div>
-      <div className="main-content">
-        <div className='image-container'>
-          <div className='pattern'></div>
-          <div className="prev-button" onClick={(e) => { prevSlide(); e.preventDefault(); }}>&#10094;</div>
-          {renderImages()}
-          <div className="next-button" onClick={(e) => { nextSlide(); e.preventDefault(); }}>&#10095;</div>
+        <div className="main-content">
+            <div className="image-container">
+                <div className="pattern"></div>
+                <div className="prev-button" onClick={(e) => { prevSlide(); e.preventDefault(); }}>&#10094;</div>
+                {renderImages()} {/* This will render the images dynamically */}
+                <div className="next-button" onClick={(e) => { nextSlide(); e.preventDefault(); }}>&#10095;</div>
+            </div>
         </div>
-      </div>
-      <text className='food-text'>Tacos that go wherever you go!</text>
-      <text className='food-text2'>Tacos that go wherever you go!</text>
+        <div className="food-text">Tacos that go wherever you go!</div>
+        <div className="food-text2">Tacos that go wherever you go!</div>
 
-      <div className="order-button-container">
-        <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" rel="noopener noreferrer">
-          <button className="button-74" type="button">Order Now!</button>
-        </a>
-      </div>
+        <div className="order-button-container">
+            <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" rel="noopener noreferrer">
+                <button className="button-74" type="button">Order Now!</button>
+            </a>
+        </div>
 
-      <Footer />
+        <Footer />
     </div>
-  );
+);
 }
 
 export default HomePage;

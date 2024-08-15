@@ -3,6 +3,12 @@ import './About.css';
 import Footer from './footer.js';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import event1 from './assets/event-images/event1.JPG';
+import event2 from './assets/event-images/event2.JPG';
+import event3 from './assets/event-images/event3.JPEG';
+import event4 from './assets/event-images/event4.JPEG';
+import event5 from './assets/event-images/event5.JPEG';
+
 
 
 function About() {
@@ -49,11 +55,11 @@ function About() {
     <p className="About-us"> ¡Bienvenidos a nuestra página! Somos un negocio familiar orgulloso de compartir el auténtico sabor de Guadalajara, Jalisco, México. Desde nuestros famosos tacos hasta nuestras sabrosas tortas, cada platillo está hecho con amor y atención al detalle. Nuestros camiones de comida llevan la esencia de nuestra herencia culinaria directamente a tu vecindario. Únete a nosotros en este viaje lleno de sabores y descubre la pasión que hay detrás de cada bocado. ¡Gracias por ser parte de nuestra historia! </p>
   </div>
     <div className='image-container'>
-          <img src="/event-images/event1.jpg" alt='event 1' onClick={() => openModal("/event-images/event1.jpg")}/>
-          <img src="/event-images/event2.jpg" alt='event 2' onClick={() => openModal("/event-images/event2.jpg")}/>
-          <img src="/event-images/event3.jpeg" alt='event 3' onClick={() => openModal("/event-images/event3.jpeg")}/>
-          <img src="/event-images/event4.jpeg" alt='event 4' onClick={() => openModal("/event-images/event4.jpeg")}/>
-          <img src="/event-images/event5.jpeg" alt='event 5' onClick={() => openModal("/event-images/event5.jpeg")}/>
+          <img src={event1} alt='event 1' onClick={() => openModal(event1)}/>
+          <img src={event2} alt='event 2' onClick={() => openModal(event2)}/>
+          <img src={event3} alt='event 3' onClick={() => openModal(event3)}/>
+          <img src={event4} alt='event 4' onClick={() => openModal(event4)}/>
+          <img src={event5} alt='event 5' onClick={() => openModal(event5)}/>
     </div>
     <div className='About-inquiry'>
     <a href="/Contact">

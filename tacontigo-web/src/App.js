@@ -27,7 +27,7 @@ function App() {
           <div className="header-toggle"></div>
         </header>
         <main>
-          <Routes> {/* Use Routes instead of Switch */}
+          <Routes>
             <Route path="/" element={<HomePage />} /> 
             <Route path="/About" element={<About />} /> 
             <Route path="/Menu" element={<Menu />} /> 

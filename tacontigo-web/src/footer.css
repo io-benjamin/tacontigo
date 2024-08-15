@@ -60,6 +60,9 @@
   }
 
   .footer-note-container {
-    margin-top: 20px;
+    margin-left: 120px;
+    font-size: medium;
+    width: 200px;
+    margin-top: -10px;
   }
 }
