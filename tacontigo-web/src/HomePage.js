@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Footer from './footer.js';
+
+// Food images imports
 import image20 from './assets/food-images/20.jpg';
 import image4 from './assets/food-images/4.jpg';
 import image12 from './assets/food-images/12.jpg';
@@ -8,118 +11,135 @@ import image19 from './assets/food-images/19.jpg';
 import image6 from './assets/food-images/6.jpg';
 import image14 from './assets/food-images/14.jpg';
 import image8 from './assets/food-images/8.jpg';
-import image11 from './assets/food-images/11.jpg';
-import image9 from './assets/food-images/9.jpg';
 import image15 from './assets/food-images/15.jpg';
 import image18 from './assets/food-images/18.jpg';
 import image2 from './assets/food-images/2.jpg';
-import image5 from './assets/food-images/5.jpg';
+import image21 from './assets/food-images/21.png';
 
+
+// Constants
+const SLIDE_INTERVAL = 7500; // 7.5 seconds
+const IMAGES_PER_SLIDE = 3;
+
+// Food data configuration
+const FOOD_DATA = [
+  { image: image20, name: 'Birria Tacos con Chile Toreado' },
+  { image: image4, name: 'Vampiros' },
+  { image: image12, name: 'Combo con Tacos y Hotdog' },
+  { image: image19, name: 'Birria-Grilled Cheese' },
+  { image: image6, name: 'Torta Ahogada' },
+  { image: image14, name: 'Torta Al Pastor' },
+  { image: image8, name: 'Tacos de Asada con Cebolla Frita' },
+  { image: image15, name: 'Tacos de Lengua con Chile Toreado' },
+  { image: image18, name: 'Birria Tacos' },
+  { image: image2, name: 'Tacos de Asada' },
+  { image: image21, name: 'Chicken Quesadilla with Rice' }
+];
 
 function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [
-    image20,
-    image4,
-    image12,
-    image19,
-    image6,
-    image14,
-    image8,
-    image11,
-    image9,
-    image15,
-    image18,
-    image2,
-    image5
-  ];
 
-  const foodNames = [
-    'Birria Tacos con Chile Toreado',
-    'Vampiros',
-    'Combo con Tacos y Hotdog',
-    'Birria-Grilled Cheese',
-    'Torta Ahogada',
-    'Torta Al Pastor',
-    'Tacos de Asada con Cebolla Frita',
-    'Tacos',
-    'Torta',
-    'Tacos de Lengua con Chile Toreado',
-    'Birria Tacos',
-    'Tacos de Asada',
-    'Tacos de Birria con Queso'
-  ];
-
-
+  // Auto-slide effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 3) % images.length);
-    }, 7500); // Change slide every 7.5 seconds
+      setCurrentIndex((prevIndex) => (prevIndex + IMAGES_PER_SLIDE) % FOOD_DATA.length);
+    }, SLIDE_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
 
+  // Navigation handlers
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 3) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + IMAGES_PER_SLIDE) % FOOD_DATA.length);
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex - 3;
-      return newIndex < 0 ? images.length + newIndex : newIndex;
+      const newIndex = prevIndex - IMAGES_PER_SLIDE;
+      return newIndex < 0 ? FOOD_DATA.length + newIndex : newIndex;
     });
   };
 
+  // Render image component
+  const renderImageWrapper = (index, key) => {
+    const foodItem = FOOD_DATA[index % FOOD_DATA.length];
+    return (
+      <div key={key} className="image-wrapper">
+        <img src={foodItem.image} alt={foodItem.name} />
+        <div className="overlay">{foodItem.name}</div>
+      </div>
+    );
+  };
+
+  // Render images based on screen size
   const renderImages = () => {
-    if (window.innerWidth <= 768) {
-      return (
-        <div key={currentIndex} className="image-wrapper">
-          <img src={images[currentIndex]} alt={foodNames[currentIndex]} />
-          <div className="overlay">{foodNames[currentIndex]}</div>
-        </div>
-      );
-    } else {
-      return (
-        <>
-          <div key={0} className="image-wrapper">
-            <img src={images[currentIndex]} alt={foodNames[currentIndex]} />
-            <div className="overlay">{foodNames[currentIndex]}</div>
-          </div>
-          <div key={1} className="image-wrapper">
-            <img src={images[(currentIndex + 1) % images.length]} alt={foodNames[(currentIndex + 1) % images.length]} />
-            <div className="overlay">{foodNames[(currentIndex + 1) % images.length]}</div>
-          </div>
-          <div key={2} className="image-wrapper">
-            <img src={images[(currentIndex + 2) % images.length]} alt={foodNames[(currentIndex + 2) % images.length]} />
-            <div className="overlay">{foodNames[(currentIndex + 2) % images.length]}</div>
-          </div>
-        </>
-      );
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+      return renderImageWrapper(currentIndex, 'mobile');
     }
+    
+    return (
+      <>
+        {renderImageWrapper(currentIndex, 'desktop-1')}
+        {renderImageWrapper(currentIndex + 1, 'desktop-2')}
+        {renderImageWrapper(currentIndex + 2, 'desktop-3')}
+      </>
+    );
   };
 
   return (
     <div>
-        <div className="main-content">
-            <div className="image-container">
-                <div className="pattern"></div>
-                <div className="prev-button" onClick={(e) => { prevSlide(); e.preventDefault(); }}>&#10094;</div>
-                {renderImages()} {/* This will render the images dynamically */}
-                <div className="next-button" onClick={(e) => { nextSlide(); e.preventDefault(); }}>&#10095;</div>
-            </div>
-        </div>
-        <div className="food-text">Tacos that go wherever you go!</div>
-        <div className="food-text2">Tacos that go wherever you go!</div>
+      <main className="main-content">
+        <section className="image-container">
+          <div className="pattern" />
+          <button 
+            className="prev-button" 
+            onClick={prevSlide}
+            aria-label="Previous images"
+          >
+            &#10094;
+          </button>
+          {renderImages()}
+          <button 
+            className="next-button" 
+            onClick={nextSlide}
+            aria-label="Next images"
+          >
+            &#10095;
+          </button>
+        </section>
+      </main>
 
+      <section className="tagline-section">
+        <h1 className="food-text">Tacos that go wherever you go!</h1>
+        <h1 className="food-text2" aria-hidden="true">Tacos that go wherever you go!</h1>
+      </section>
+
+      <section className="order-section">
         <div className="order-button-container">
-            <a href="https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11khc34gc1&utm_source=share" target="_blank" rel="noopener noreferrer">
-                <button className="button-74" type="button">Order Now!</button>
-            </a>
+          <a href="https://tinyurl.com/mr33xkmf" target="_blank" rel="noopener noreferrer">
+            <button className="button-74 ubereats" type="button">Order on UberEats</button>
+          </a>
+          <a href="https://tinyurl.com/yckyxzuy" target="_blank" rel="noopener noreferrer">
+            <button className="button-74 doordash" type="button">Order on DoorDash</button>
+          </a>
         </div>
+      </section>
 
-        <Footer />
+      <section className="cater-section">
+        <div className="cater-content">
+          <h2>Planning an Event?</h2>
+          <p>Let us cater your next celebration with our delicious taco packages!</p>
+          <Link to="/Catering" className="cater-link">
+            <button className="button-74 cater-btn" type="button">Cater Today!</button>
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
     </div>
-);
+  );
 }
 
 export default HomePage;

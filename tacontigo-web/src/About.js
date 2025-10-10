@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './About.css';
 import Footer from './footer.js';
+import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import event1 from './assets/event-images/event1.JPG';
@@ -61,10 +62,43 @@ function About() {
           <img src={event4} alt='event 4' onClick={() => openModal(event4)}/>
           <img src={event5} alt='event 5' onClick={() => openModal(event5)}/>
     </div>
-    <div className='About-inquiry'>
-    <a href="/Contact">
-      <h1>Inquiry about our trucks!</h1>
-    </a>
+    <div className="About-inquiry">
+          <h2>Want our food trucks at your event?</h2>
+          <p>Whether you're hosting a party, corporate event, or just a gathering with friends, our food trucks bring the authentic flavors of Guadalajara straight to you.</p>
+            <Link to="/Catering" className="inquiry-button">
+            Inquire About Our Trucks
+          </Link>
+    </div>
+
+    {/* FAQ Section */}
+    <div className="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div className="faq-container">
+        <div className="faq-item">
+          <h3>What are your hours of operation?</h3>
+          <p>We're open Monday through Saturday from 11 AM to 9 PM, and Sunday from 12 PM to 8 PM.</p>
+        </div>
+        <div className="faq-item">
+          <h3>Do you offer delivery?</h3>
+          <p>Yes! You can order delivery through UberEats, DoorDash, or call us directly for phone orders.</p>
+        </div>
+        <div className="faq-item">
+          <h3>What is the minimum order for catering?</h3>
+          <p>The minimum order for catering is 20 people. Please visit our Catering page for more details.</p>
+        </div>
+        <div className="faq-item">
+          <h3>How far in advance do I need to place a catering order?</h3>
+          <p>We recommend placing your catering order at least three weeks in advance to ensure availability.</p>
+        </div>
+        <div className="faq-item">
+          <h3>Do you have vegetarian or vegan options?</h3>
+          <p>Yes! We offer vegetarian options and can accommodate dietary restrictions. Please let us know your needs when ordering.</p>
+        </div>
+        <div className="faq-item">
+          <h3>How can I contact you?</h3>
+          <p>You can call us directly for orders, email us at tacontigofamilia@gmail.com, or use our catering form for event inquiries.</p>
+        </div>
+      </div>
     </div>
 
      {/* Modal */}

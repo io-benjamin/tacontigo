@@ -1,19 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Use Link from react-router-dom
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from "./HomePage";
 import Dropdown from "./Dropdown";
-import Menu from "./Menu"; // Import the Menu component
+import Menu from "./Menu";
+import Catering from "./Catering";
 import About from "./About";
-import Contact from "./Contact";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
 
 function App() {
   return (
-    <Router basename="/tacontigo">
+    // <Router basename="/tacontigo">
+ <Router>
       <div>
-        <header className="app">
+        <header className="App">
           <div className="header-title">
             <Dropdown />
             <h1 className="banner">
@@ -31,7 +32,7 @@ function App() {
             <Route path="/" element={<HomePage />} /> 
             <Route path="/About" element={<About />} /> 
             <Route path="/Menu" element={<Menu />} /> 
-            <Route path="/Contact" element={<Contact />} /> 
+            <Route path="/Catering" element={<Catering />} /> 
           </Routes>
         </main>
       </div>
