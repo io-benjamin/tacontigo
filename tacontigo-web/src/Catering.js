@@ -268,8 +268,7 @@ TOTAL ESTIMATED PRICE: $${totalPrice.toFixed(2)}
       <div className="catering-hero">
         <div className="hero-content">
           <h1>Catering Services</h1>
-          <p>Build your perfect taco package for any event!
-
+          <p>Build your perfect catering package for any event!
           </p>
         </div>
       </div>
@@ -518,13 +517,13 @@ TOTAL ESTIMATED PRICE: $${totalPrice.toFixed(2)}
               <h3>Prefer to speak with us directly?</h3>
               <div className="contact-options">
                 <div className="contact-option">
-                  <a href="tel:+1234567890" className="contact-btn phone-btn">
+                  <a href="tel:+18042921401" className="contact-btn phone-btn">
                     📞 Call Us
                   </a>
                   <span className="contact-detail">(804) 292-1401</span>
                 </div>
                 <div className="contact-option">
-                  <a href="mailto:info@tacontigo.com" className="contact-btn email-btn">
+                  <a href="https://mail.google.com/mail/u/2/#inbox?compose=DmwnWrRpdCxqmLDXcpPzHdskMhjbJwnQRzTPMtXDqrJVLLJKKtpRjmvJPxMmKcpcSSsHTxLswfbB" className="contact-btn email-btn" target="_blank" rel="noopener noreferrer">
                     ✉️ Email Us
                   </a>
                   <span className="contact-detail">tacontigofamilia@gmail.com</span>

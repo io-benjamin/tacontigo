@@ -66,7 +66,7 @@ function About() {
           <h2>Want our food trucks at your event?</h2>
           <p>Whether you're hosting a party, corporate event, or just a gathering with friends, our food trucks bring the authentic flavors of Guadalajara straight to you.</p>
             <Link to="/Catering" className="inquiry-button">
-            Inquire About Our Trucks
+            Inquire About Having Us!
           </Link>
     </div>
 
