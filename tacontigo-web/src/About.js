@@ -80,7 +80,7 @@ function About() {
         </div>
         <div className="faq-item">
           <h3>Do you offer delivery?</h3>
-          <p>Yes! You can order delivery through UberEats, DoorDash, or call us directly for phone orders.</p>
+          <p>Yes! You can order delivery through DoorDash or call us directly for phone orders.</p>
         </div>
         <div className="faq-item">
           <h3>What is the minimum order for catering?</h3>

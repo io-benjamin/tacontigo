@@ -135,18 +135,6 @@ function HomePage() {
             <span>Order on DoorDash</span>
           </a>
 
-          {/* Uber Eats Button */}
-          <a
-            href="https://tinyurl.com/mr33xkmf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="delivery-btn ubereats-btn"
-          >
-            <svg className="btn-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.4 2.1C3.8 2.1 2.4 3.5 2.4 5.1v5.8c0 1.6 1.3 2.9 2.9 2.9h5.8c1.6 0 2.9-1.3 2.9-2.9V5.1c0-1.6-1.3-2.9-2.9-2.9H5.4zm7 5.8c0-.8.6-1.4 1.4-1.4h5.8c.8 0 1.4.6 1.4 1.4v5.8c0 .8-.6 1.4-1.4 1.4h-5.8c-.8 0-1.4-.6-1.4-1.4V7.9zm-10 6.2c0-.8.6-1.4 1.4-1.4h5.8c.8 0 1.4.6 1.4 1.4v5.8c0 .8-.6 1.4-1.4 1.4H3.8c-.8 0-1.4-.6-1.4-1.4v-5.8zm10 0c0-.8.6-1.4 1.4-1.4h5.8c.8 0 1.4.6 1.4 1.4v5.8c0 .8-.6 1.4-1.4 1.4h-5.8c-.8 0-1.4-.6-1.4-1.4v-5.8z" />
-            </svg>
-            <span>Order on Uber Eats</span>
-          </a>
         </div>
       </section>
 

@@ -341,16 +341,6 @@ body {
   background-color: #E02B00;
 }
 
-/* Uber Eats Button */
-.ubereats-btn {
-  background-color: #06C167;
-  color: white;
-}
-
-.ubereats-btn:hover {
-  background-color: #05AB5C;
-}
-
 /* Cater Button */
 .cater-btn {
   background-color: #1f2937;

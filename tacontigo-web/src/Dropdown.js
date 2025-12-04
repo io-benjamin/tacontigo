@@ -6,7 +6,6 @@ import menuImage from './assets/Menu/TacontigoMenu.JPG';
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [showOrderSubmenu, setShowOrderSubmenu] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -43,7 +42,6 @@ function Dropdown() {
   const closeDropdown = () => {
     if (isAnimating) return;
     setIsOpen(false);
-    setShowOrderSubmenu(false);
   };
 
   const handleLinkClick = (event) => {
@@ -51,11 +49,7 @@ function Dropdown() {
     closeDropdown();
   };
 
-  const handleOrderClick = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setShowOrderSubmenu(!showOrderSubmenu);
-  };
+  // Order button now links directly to DoorDash; no toggle handler needed.
 
   return (
     <div className={`dropdown ${isOpen ? 'open' : ''}`} ref={dropdownRef}>
@@ -72,23 +66,9 @@ function Dropdown() {
             <Link to="/" onClick={handleLinkClick}>Home</Link> 
           </li>
           <li className="order-item">
-            <a href="#" onClick={handleOrderClick} className="order-toggle">
-              Order {showOrderSubmenu ? '▼' : '▶'}
+            <a href="https://tinyurl.com/yckyxzuy" target="_blank" rel="noreferrer" onClick={handleLinkClick} className="order-toggle">
+              Order
             </a>
-            {showOrderSubmenu && (
-              <ul className="order-submenu">
-                <li>
-                  <a href="https://tinyurl.com/mr33xkmf" target="_blank" rel="noreferrer" onClick={handleLinkClick}>
-                    UberEats
-                  </a>
-                </li>
-                <li>
-                  <a href="https://tinyurl.com/yckyxzuy" target="_blank" rel="noreferrer" onClick={handleLinkClick}>
-                    DoorDash
-                  </a>
-                </li>
-              </ul>
-            )}
           </li>
           <li>
             <Link to="/Catering" onClick={handleLinkClick}>Catering</Link>
