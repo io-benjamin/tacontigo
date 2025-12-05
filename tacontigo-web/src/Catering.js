@@ -484,14 +484,6 @@ TOTAL ESTIMATED PRICE: $${totalPrice.toFixed(2)}
                 onChange={(e) => setCustomerInfo({...customerInfo, eventDate: e.target.value})}
                 required
               />
-              <input
-                type="time"
-                name="event-time"
-                placeholder="Event Time"
-                value={customerInfo.eventTime}
-                onChange={(e) => setCustomerInfo({...customerInfo, eventTime: e.target.value})}
-                required
-              />
               <textarea
                 name="special-requests"
                 placeholder="Special requests or dietary restrictions..."
