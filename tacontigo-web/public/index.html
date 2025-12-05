@@ -12,6 +12,15 @@
     <title>RVATacontigo</title>
   </head>
   <body>
+    <!-- Hidden static form for Netlify detection (enables AJAX/JS form submissions)
+         This must match the React form 'name' attribute (catering-request). -->
+    <form name="catering-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" style="display:none;">
+      <input type="hidden" name="form-name" value="catering-request" />
+      <p>
+        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+      </p>
+    </form>
+
     <div id="root"></div>
   </body>
 </html>
