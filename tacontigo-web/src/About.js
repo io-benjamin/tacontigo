@@ -44,23 +44,31 @@ function About() {
   return (
     <div className="About-content">
       <div className="About-inner">
-    <h1>About Us</h1>
-    <p className="About-us">Welcome to our page! We're thrilled to share a glimpse into who we are. Hailing from Guadalajara, Jalisco, Mexico, we take immense pride in being a family-owned business dedicated to bringing you the authentic taste of our culinary heritage. Get ready to embark on a flavorful journey with us!</p>
-
-    <p className="About-us">Our roots are deeply intertwined with the vibrant tapestry of Guadalajara's culinary scene, and we're excited to bring that vibrant experience directly to you. From the bustling streets of our hometown to your neighborhood, our family is on a mission to share the passion, flavors, and warmth that define our traditional Mexican dishes.</p>
-
-    <p className="About-us">Explore our food trucks and savor the authenticity in every bite. Whether it's our famous tacos, hearty burritos, savory tortas, or flavorful quesadillas, each dish is crafted with the love and attention to detail that reflects our family's commitment to excellence. Complement your meal with our signature homemade sauces and traditional sides for a truly satisfying experience.</p>
-
-    <p className="About-us">Join us on this delicious adventure, where every meal is not just a taste of Mexico but a piece of our family's story. Thank you for being a part of our journey, and we look forward to creating memorable moments with you through the irresistible flavors of Guadalajara.</p>
-
-    <p className="About-us"> ¡Bienvenidos a nuestra página! Somos un negocio familiar orgulloso de compartir el auténtico sabor de Guadalajara, Jalisco, México. Desde nuestros famosos tacos hasta nuestras sabrosas tortas, cada platillo está hecho con amor y atención al detalle. Nuestros camiones de comida llevan la esencia de nuestra herencia culinaria directamente a tu vecindario. Únete a nosotros en este viaje lleno de sabores y descubre la pasión que hay detrás de cada bocado. ¡Gracias por ser parte de nuestra historia! </p>
-  </div>
+        <h1>About Us</h1>
+        
+        <div className="about-cards-container">
+          <div className="about-card">
+            <h3>Our Story</h3>
+            <p className="About-us">Welcome to our page! We're thrilled to share a glimpse into who we are. Hailing from Guadalajara, Jalisco, Mexico, we take immense pride in being a family-owned business dedicated to bringing you the authentic taste of our culinary heritage. Get ready to embark on a flavorful journey with us!</p>
+            <p className="About-us">Our roots are deeply intertwined with the vibrant tapestry of Guadalajara's culinary scene, and we're excited to bring that vibrant experience directly to you. From the bustling streets of our hometown to your neighborhood, our family is on a mission to share the passion, flavors, and warmth that define our traditional Mexican dishes.</p>
+            <p className="About-us">Explore our food trucks and savor the authenticity in every bite. Whether it's our famous tacos, hearty burritos, savory tortas, or flavorful quesadillas, each dish is crafted with the love and attention to detail that reflects our family's commitment to excellence. Complement your meal with our signature homemade sauces and traditional sides for a truly satisfying experience.</p>
+            <p className="About-us">Join us on this delicious adventure, where every meal is not just a taste of Mexico but a piece of our family's story. Thank you for being a part of our journey, and we look forward to creating memorable moments with you through the irresistible flavors of Guadalajara.</p>
+          </div>
+          
+          <div className="about-card">
+            <h3>Nuestra Historia</h3>
+            <p className="About-us">¡Bienvenidos a nuestra página! Somos un negocio familiar orgulloso de compartir el auténtico sabor de Guadalajara, Jalisco, México. Desde nuestros famosos tacos hasta nuestras sabrosas tortas, cada platillo está hecho con amor y atención al detalle.</p>
+            <p className="About-us">Nuestros camiones de comida llevan la esencia de nuestra herencia culinaria directamente a tu vecindario. Únete a nosotros en este viaje lleno de sabores y descubre la pasión que hay detrás de cada bocado.</p>
+            <p className="About-us">¡Gracias por ser parte de nuestra historia!</p>
+          </div>
+        </div>
+      </div>
     <div className='image-container'>
-          <img src={event1} alt='event 1' onClick={() => openModal(event1)}/>
-          <img src={event2} alt='event 2' onClick={() => openModal(event2)}/>
-          <img src={event3} alt='event 3' onClick={() => openModal(event3)}/>
-          <img src={event4} alt='event 4' onClick={() => openModal(event4)}/>
-          <img src={event5} alt='event 5' onClick={() => openModal(event5)}/>
+          <img src={event1} alt='event 1'/>
+          <img src={event2} alt='event 2'/>
+          <img src={event3} alt='event 3'/>
+          <img src={event4} alt='event 4'/>
+          <img src={event5} alt='event 5'/>
     </div>
     <div className="About-inquiry">
           <h2>Want our food trucks at your event?</h2>

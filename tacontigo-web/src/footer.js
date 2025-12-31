@@ -24,8 +24,6 @@ const Footer = () => (
       <h2>Contact</h2>
       <p><a href="mailto:tacontigofamilia@gmail.com">tacontigofamilia@gmail.com</a></p>
       <p><a href="tel:8042921401">804-292-1401</a></p>
-      <p><a href="tel:8046837487">804-683-7487</a></p>
-      <p><a href="tel:8046777458">804-677-7458</a></p>
     </div>
   </div>
     <div className="footer-note-container">

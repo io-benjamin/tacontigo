@@ -1,0 +1,262 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fcfcfc;
+  transition: background-color 0.6s ease;
+  padding-top: 100px;
+}
+
+.hero.scrolled {
+  background-color: #F5EFE6; /* Cream background when scrolled */
+}
+
+/* Video with responsive dimensions, centered */
+.hero-video {
+  position: absolute;
+  width: min(700px, 90vw);
+  height: min(700px, 90vw);
+  max-width: 700px;
+  max-height: 700px;
+  object-fit: cover;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+}
+
+.hero.scrolled .hero-video {
+  opacity: 0;               /* Fade out video when scrolled */
+}
+
+
+/* Centered text over the video, no background block */
+.hero-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #0A2342;
+  padding: 0 clamp(1rem, 4vw, 1.5rem);
+  z-index: 0;               /* Behind video initially */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.6s ease, z-index 0s 0.2s;
+}
+
+/* Show text when scrolled and positioned on top of video */
+.hero.show-text .hero-text {
+  opacity: 1;
+  transform: translateY(0);
+  justify-content: flex-end;
+  padding-bottom: clamp(100px, 20vh, 175px);
+  z-index: 3;               /* Above video when scrolled */
+  transition: opacity 0.5s ease, transform 0.5s ease, color 0.6s ease, z-index 0s;
+}
+
+.hero.scrolled .hero-text {
+  color: #0A2342;
+}
+
+/* Premium hero title */
+.hero-title {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  letter-spacing: 0.06em;
+  text-transform: none;
+  margin: 0 0 0.25rem;
+  font-weight: 800;
+  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  transition: color 0.8s ease, text-shadow 0.8s ease;
+}
+
+.hero.show-text .hero-title {
+  color: #0A2342;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  max-width: 520px;
+  margin: 0 0 2rem;
+  font-weight: 400;
+  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  line-height: 1.6;
+  transition: color 0.8s ease, text-shadow 0.8s ease;
+}
+
+.hero.show-text .hero-subtitle {
+  color: #0A2342;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons - simple, no borders on the container */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* Minimal pill-style buttons */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Solid button with premium glow */
+.hero-btn.primary {
+  background: #f97316;
+  color: #0b1120;
+  box-shadow: 0 0 40px rgba(249, 115, 22, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 60px rgba(249, 115, 22, 0.5), 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Ghost button with premium styling - more visible */
+.hero-btn.ghost {
+  background: rgba(255, 255, 255, 0.15);  /* Subtle white background for visibility */
+  color: #0A2342;  /* Dark navy text */
+  border: 2px solid rgba(249, 250, 251, 0.8);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.hero-btn.ghost:hover {
+  transform: translateY(-2px) scale(1.01);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(249, 250, 251, 1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  color: #0A2342;  /* Keep dark navy on hover */
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .hero {
+    height: 90vh;
+    padding-top: 80px;
+  }
+
+  .hero-video {
+    width: min(600px, 95vw);
+    height: min(600px, 95vw);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    letter-spacing: 0.08em;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .hero-btn {
+    width: auto;
+    padding: 0.65rem 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: 85vh;
+    padding-top: 70px;
+  }
+
+  .hero-video {
+    width: min(500px, 95vw);
+    height: min(500px, 95vw);
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 9vw, 2.5rem);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.85rem, 4vw, 0.95rem);
+  }
+
+  .hero-buttons {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: auto;
+    margin: 0 auto;
+    gap: 0.75rem;
+  }
+
+  .hero-btn {
+    width: auto;
+    padding: 0.6rem 1.3rem;
+    font-size: 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 80vh;
+    padding-top: 60px;
+  }
+
+  .hero-video {
+    width: min(420px, 95vw);
+    height: min(420px, 95vw);
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 10vw, 2rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.8rem, 4.5vw, 0.9rem);
+  }
+
+  .hero-buttons {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: auto;
+    margin: 0 auto;
+    gap: 0.75rem;
+  }
+
+  .hero-btn {
+    width: auto;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.8rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+}

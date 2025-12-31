@@ -1,49 +1,191 @@
+:root {
+  --primary-dark: #0A2342;
+  --accent-red: #C64A2F;
+  --accent-yellow: #E8B44A;
+  --bg-cream: #F5EFE6;
+  --text-dark: #2D3436;
+  --text-light: #F5EFE6;
+}
+
 .About-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 100px 20px 40px;
+  background-color: var(--bg-cream);
+  min-height: 100vh;
 }
 
 .About-inner {
   text-align: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
+  margin-bottom: 80px;
+}
+
+.About-inner h1 {
+  color: var(--primary-dark);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.About-inner h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow));
+  border-radius: 3px;
+}
+
+.about-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.about-card {
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow));
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.about-card h3 {
+  color: var(--primary-dark);
+  font-size: 2rem;
+  margin: 0 0 2rem 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .About-us {
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-dark);
+  margin-bottom: 1.25rem;
+  font-weight: 400;
 }
 
-.About-inquiry a {
-  text-decoration: underline;
-  transition: color 0.3s ease; /* Smooth transition */
+.About-inquiry {
+  width: 100%;
+  max-width: 1000px;
+  margin: 80px 0;
+  padding: 60px 50px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, rgba(10, 35, 66, 0.95) 100%);
+  border-radius: 20px;
+  color: var(--text-light);
+  box-shadow: 0 15px 50px rgba(10, 35, 66, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-.About-inquiry a:hover {
-  color: red; /* Change color to red on hover */
+.About-inquiry::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(232, 180, 74, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.About-inquiry h1 {
-  margin: 0; /* Remove default margin for h1 */
-  padding: 0; /* Remove default padding for h1 */
+.About-inquiry h2 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 1.5rem 0;
+  color: var(--accent-yellow);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.About-inquiry p {
+  font-size: 1.15rem;
+  margin: 0 0 2.5rem 0;
+  line-height: 1.7;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inquiry-button {
+  display: inline-block;
+  padding: 1.15rem 2.5rem;
+  background-color: var(--bg-cream);
+  color: var(--primary-dark);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.5px;
+}
+
+.inquiry-button:hover {
+  background-color: var(--accent-yellow);
+  color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 180, 74, 0.3);
 }
 
 .image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin: 60px 0;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .image-container img {
-  width: 100%; /* Set the width to 100% for responsiveness */
-  max-width: 250px; /* Limit the maximum width of images */
-  height: auto; /* Ensure the aspect ratio is maintained */
-  margin: 10px;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -89,91 +231,300 @@
 }
 
 @media (max-width: 768px) {
+  .About-content {
+    padding: 70px 12px 25px;
+  }
+
   .About-inner {
-    padding: 0 10px;
+    margin-bottom: 40px;
+  }
+
+  .About-inner h1 {
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .about-cards-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .about-card {
+    padding: 25px;
+  }
+
+  .about-card h3 {
+    font-size: 1.4rem;
   }
 
   .About-us {
-    font-size: 14px;
+    font-size: 0.95rem;
+  }
+
+  .image-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 30px 0;
+  }
+
+  .image-container img {
+    height: 180px;
+    border-radius: 12px;
+  }
+
+  .About-inquiry {
+    margin: 40px 0;
+    padding: 30px 20px;
+  }
+
+  .About-inquiry h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .About-inquiry p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .inquiry-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-section {
+    margin: 30px 0;
+    padding: 25px 12px;
+  }
+
+  .faq-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+  }
+
+  .faq-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .faq-item {
+    padding: 14px 12px;
+  }
+
+  .faq-item h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .faq-item p {
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 
   .modal-content-about {
     max-width: 100%;
     max-height: 100%;
   }
+}
+
+@media (max-width: 480px) {
+  .About-content {
+    padding: 60px 12px 20px;
+  }
+
+  .About-inner {
+    margin-bottom: 30px;
+  }
+
+  .About-inner h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-cards-container {
+    gap: 12px;
+  }
+
+  .about-card {
+    padding: 18px;
+  }
+
+  .about-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .About-us {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+
+  .image-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 25px 0;
+  }
+
   .image-container img {
-    max-width: 75%; /* Remove the maximum width limit for smaller screens */
+    height: 120px;
+    border-radius: 8px;
+  }
+
+  .About-inquiry {
+    margin: 30px 0;
+    padding: 20px 15px;
+  }
+
+  .About-inquiry h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .About-inquiry p {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .inquiry-button {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .faq-section {
+    margin: 25px 0;
+    padding: 20px 10px;
+  }
+
+  .faq-section h2 {
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+  }
+
+  .faq-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .faq-item {
+    padding: 12px 10px;
+  }
+
+  .faq-item h3 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .faq-item p {
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
 }
 
 /* FAQ Section Styles */
 .faq-section {
   width: 100%;
-  max-width: 800px;
-  margin: 40px 0;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  border: 2px solid rgba(0, 0, 139, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 80px 0;
+  padding: 60px 50px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
 }
 
 .faq-section h2 {
   text-align: center;
-  color: #2c3e50;
-  margin: 0 0 30px 0;
-  font-size: 2rem;
-  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0 0 60px 0;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.faq-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow));
+  border-radius: 3px;
 }
 
 .faq-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
 .faq-item {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  border-left: 4px solid darkblue;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(245, 239, 230, 0.4), rgba(255, 255, 255, 0.8));
+  border-radius: 15px;
+  border-left: 5px solid var(--accent-red);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .faq-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--accent-yellow);
 }
 
 .faq-item h3 {
-  color: darkblue;
+  color: var(--primary-dark);
   margin: 0 0 10px 0;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .faq-item p {
-  color: #2c3e50;
+  color: var(--text-dark);
   margin: 0;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
   .faq-section {
     margin: 20px 0;
-    padding: 20px;
+    padding: 20px 15px;
   }
   
   .faq-section h2 {
     font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .faq-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   
   .faq-item {
-    padding: 15px;
+    padding: 14px 12px;
   }
   
   .faq-item h3 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .faq-item p {
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 }
