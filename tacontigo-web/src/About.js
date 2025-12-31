@@ -84,7 +84,7 @@ function About() {
       <div className="faq-container">
         <div className="faq-item">
           <h3>What are your hours of operation?</h3>
-          <p>We're open Monday through Saturday from 11 AM to 9 PM, and Sunday from 12 PM to 8 PM.</p>
+          <p>We're open Tuesday through Saturday from 11:30 AM to 8 PM, and Sunday from 12 PM to 8 PM.</p>
         </div>
         <div className="faq-item">
           <h3>Do you offer delivery?</h3>

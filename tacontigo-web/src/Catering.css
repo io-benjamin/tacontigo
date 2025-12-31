@@ -2,9 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Bangers&display=swap');
 
 /* Catering.css - Matching Website Style */
+:root {
+  --primary-dark: #0A2342;
+  --accent-red: #C64A2F;
+  --accent-yellow: #E8B44A;
+  --bg-cream: #F5EFE6;
+  --text-dark: #2D3436;
+  --text-light: #F5EFE6;
+}
+
 .catering-page {
   min-height: 100vh;
-  background-color: #FFFBFB;
+  background-color: var(--bg-cream);
   padding-top: 120px;
   font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -12,25 +21,25 @@
 .catering-hero {
   text-align: center;
   padding: 60px 20px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   margin: 0 auto 40px;
   max-width: 800px;
   border-radius: 25px;
-  border: 2px solid darkblue;
+  border: 2px solid var(--primary-dark);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-family: "Bangers", cursive, system-ui;
-  color: darkblue;
+  color: var(--primary-dark);
   margin: 0 0 20px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content p {
   font-size: 1.4rem;
-  color: #333;
+  color: var(--text-dark);
   font-weight: 500;
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -47,11 +56,11 @@
 }
 
 .package-builder {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 25px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(0, 0, 139, 0.2);
+  border: 2px solid rgba(10, 35, 66, 0.2);
 }
 
 .package-size-section,
@@ -62,7 +71,7 @@
 .package-size-section h2,
 .items-section h2 {
   font-size: 1.8rem;
-  color: #2c3e50;
+  color: var(--primary-dark);
   margin-bottom: 20px;
   font-weight: 700;
   display: flex;
@@ -79,8 +88,8 @@
 }
 
 .package-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(0, 0, 139, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(10, 35, 66, 0.3);
   border-radius: 15px;
   padding: 20px;
   text-align: center;
@@ -88,6 +97,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
+  color: var(--primary-dark);
 }
 
 .package-card::before {
@@ -97,7 +107,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 139, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(10, 35, 66, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
@@ -107,16 +117,16 @@
 
 .package-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 139, 0.2);
-  border-color: rgba(0, 0, 139, 0.5);
+  box-shadow: 0 15px 35px rgba(10, 35, 66, 0.2);
+  border-color: rgba(10, 35, 66, 0.5);
 }
 
 .package-card.selected {
-  background: darkblue;
+  background: var(--primary-dark);
   color: white;
-  border-color: darkblue;
+  border-color: var(--primary-dark);
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 139, 0.3);
+  box-shadow: 0 15px 35px rgba(10, 35, 66, 0.3);
 }
 
 .package-card h3 {
@@ -125,12 +135,14 @@
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.3px;
+  color: var(--primary-dark);
 }
 
 .base-price {
   font-size: 1.1rem;
   font-weight: 700;
   opacity: 0.9;
+  color: var(--accent-red);
 }
 
 .items-grid {
@@ -140,16 +152,17 @@
 }
 
 .item-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: all 0.3s ease;
-  border: 2px solid rgba(255, 0, 0, 0.3);
+  border: 2px solid rgba(198, 74, 47, 0.3);
   position: relative;
   overflow: hidden;
+  color: var(--text-dark);
 }
 
 .item-card::before {
@@ -169,7 +182,7 @@
 
 .item-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 0, 0, 0.6);
+  border-color: rgba(198, 74, 47, 0.6);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -180,7 +193,7 @@
 .item-info h3 {
   margin: 0 0 5px 0;
   font-size: 1.1rem;
-  color: #2c3e50;
+  color: var(--primary-dark);
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.2px;
@@ -188,7 +201,7 @@
 
 .item-info p {
   margin: 0 0 8px 0;
-  color: #7f8c8d;
+  color: var(--text-dark);
   font-size: 0.9rem;
   line-height: 1.5;
   font-family: 'Inter', sans-serif;
@@ -196,7 +209,7 @@
 }
 
 .price {
-  color: red;
+  color: var(--accent-red);
   font-weight: 700;
   font-size: 1rem;
 }
@@ -211,10 +224,10 @@
 .quantity-controls button {
   width: 35px;
   height: 35px;
-  border: 2px solid darkblue;
+  border: 2px solid var(--primary-dark);
   border-radius: 50%;
   background: white;
-  color: darkblue;
+  color: var(--primary-dark);
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
@@ -226,7 +239,7 @@
 
 .quantity-controls button:hover:not(:disabled) {
   transform: scale(1.1);
-  background: darkblue;
+  background: var(--primary-dark);
   color: white;
 }
 
@@ -241,7 +254,7 @@
 .quantity-controls span {
   font-weight: 700;
   font-size: 1.1rem;
-  color: #2c3e50;
+  color: var(--primary-dark);
   min-width: 25px;
   text-align: center;
 }
@@ -253,16 +266,16 @@
 }
 
 .summary-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 25px;
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(0, 0, 139, 0.2);
+  border: 2px solid rgba(10, 35, 66, 0.2);
 }
 
 .summary-card h2 {
   margin: 0 0 20px 0;
-  color: #2c3e50;
+  color: var(--primary-dark);
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
@@ -281,13 +294,13 @@
 
 .package-summary h3 {
   margin: 0;
-  color: #2c3e50;
+  color: var(--primary-dark);
   font-size: 1.1rem;
   font-weight: 600;
 }
 
 .package-summary span {
-  color: darkblue;
+  color: var(--primary-dark);
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -297,7 +310,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
-  color: #34495e;
+  color: var(--text-dark);
   font-size: 0.95rem;
 }
 
@@ -307,7 +320,7 @@
 
 .summary-item span:last-child {
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--primary-dark);
 }
 
 .total-price {
@@ -316,7 +329,7 @@
   border-top: 2px solid #ecf0f1;
   text-align: center;
   font-size: 1.3rem;
-  color: darkblue;
+  color: var(--primary-dark);
 }
 
 .customer-form {
@@ -327,7 +340,7 @@
 
 .customer-form h3 {
   margin: 0 0 20px 0;
-  color: #2c3e50;
+  color: var(--primary-dark);
   font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
@@ -338,10 +351,10 @@
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 15px;
-  border: 2px solid rgba(255, 0, 0, 0.3);
+  border: 2px solid rgba(198, 74, 47, 0.3);
   border-radius: 10px;
   font-size: 0.95rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   transition: all 0.3s ease;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
@@ -351,18 +364,18 @@
 .customer-form input:focus,
 .customer-form textarea:focus {
   outline: none;
-  border-color: red;
+  border-color: var(--accent-red);
   background: rgba(255, 255, 255, 0.95);
   transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(198, 74, 47, 0.2);
 }
 
 .submit-request-btn {
   width: 100%;
   padding: 15px;
-  background: darkblue;
+  background: var(--primary-dark);
   color: white;
-  border: 2px solid darkblue;
+  border: 2px solid var(--primary-dark);
   border-radius: 12px;
   font-size: 1.1rem;
   font-weight: 700;
@@ -391,10 +404,10 @@
 }
 
 .submit-request-btn:hover:not(:disabled) {
-  background: white;
-  color: darkblue;
+  background: var(--accent-red);
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 139, 0.3);
+  box-shadow: 0 10px 25px rgba(198, 74, 47, 0.3);
 }
 
 .submit-request-btn:disabled {
@@ -494,14 +507,15 @@
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(0, 0, 139, 0.3);
+  border: 2px solid rgba(10, 35, 66, 0.3);
   transition: all 0.3s ease;
+  color: var(--text-dark);
 }
 
 .bin-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  border-color: rgba(0, 0, 139, 0.5);
+  border-color: rgba(10, 35, 66, 0.5);
 }
 
 .bin-header {
@@ -514,7 +528,7 @@
 }
 
 .bin-header h3 {
-  color: darkblue;
+  color: var(--primary-dark);
   margin: 0;
   font-size: 1.4rem;
   font-weight: 600;
@@ -523,15 +537,16 @@
 }
 
 .bin-price {
-  color: red;
+  color: var(--accent-red);
   font-size: 1.3rem;
   font-weight: 700;
 }
 
 .bin-description {
-  color: #64748b;
+  color: var(--text-dark);
   margin-bottom: 20px;
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .bin-quantity {
@@ -542,7 +557,7 @@
 }
 
 .quantity-btn {
-  background: darkblue;
+  background: var(--primary-dark);
   color: white;
   border: none;
   border-radius: 50%;
@@ -558,7 +573,7 @@
 }
 
 .quantity-btn:hover {
-  background: #1e40af;
+  background: var(--accent-red);
   transform: scale(1.1);
 }
 
@@ -576,7 +591,7 @@
   min-width: 60px;
   text-align: center;
   font-weight: 600;
-  color: darkblue;
+  color: var(--primary-dark);
 }
 
 /* Meat Selection Styles */
@@ -587,17 +602,18 @@
 }
 
 .meat-selection h4 {
-  color: darkblue;
+  color: var(--primary-dark);
   margin-bottom: 15px;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
 .meat-selection-note {
-  color: #64748b;
+  color: var(--text-dark);
   font-size: 0.9rem;
   margin-bottom: 15px;
   font-style: italic;
+  font-weight: 500;
 }
 
 .meat-options {
@@ -640,14 +656,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: 500;
-  color: #374151;
+  font-weight: 600;
+  color: var(--text-dark);
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.1px;
 }
 
 .meat-upcharge {
-  color: red;
+  color: var(--accent-red);
   font-weight: 600;
   font-size: 0.9rem;
 }
@@ -658,7 +674,8 @@
   padding: 15px;
   background: #f8fafc;
   border-radius: 10px;
-  border-left: 4px solid darkblue;
+  border-left: 4px solid var(--primary-dark);
+  color: var(--primary-dark);
 }
 
 .bin-header-summary {
@@ -667,14 +684,15 @@
   align-items: center;
   margin-bottom: 8px;
   font-weight: 600;
-  color: darkblue;
+  color: var(--primary-dark);
 }
 
 .meat-list {
-  color: #64748b;
+  color: var(--text-dark);
   font-size: 0.9rem;
   line-height: 1.4;
   margin-left: 10px;
+  font-weight: 500;
 }
 
 /* Responsive Design for Bins */
@@ -715,16 +733,16 @@
 }
 
 .alternative-divider span {
-  background: #FFFBFB;
+  background: var(--bg-cream);
   padding: 0 20px;
-  color: #64748b;
+  color: var(--text-dark);
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 1px;
 }
 
 .contact-alternative h3 {
-  color: #2c3e50;
+  color: var(--primary-dark);
   margin: 0 0 25px 0;
   font-size: 1.1rem;
   font-weight: 600;
@@ -775,33 +793,34 @@
 }
 
 .email-btn {
-  background: linear-gradient(135deg, darkblue 0%, #1e40af 100%);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #1e40af 100%);
   color: white;
-  border-color: darkblue;
+  border-color: var(--primary-dark);
 }
 
 .email-btn:hover {
   background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 139, 0.3);
+  box-shadow: 0 5px 15px rgba(10, 35, 66, 0.3);
 }
 
 .contact-page-btn {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background: linear-gradient(135deg, var(--accent-red) 0%, #b91c1c 100%);
   color: white;
-  border-color: #dc2626;
+  border-color: var(--accent-red);
 }
 
 .contact-page-btn:hover {
   background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 5px 15px rgba(198, 74, 47, 0.3);
 }
 
 .contact-detail {
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--text-dark);
   text-align: center;
+  font-weight: 500;
 }
 
 /* Mobile Responsive for Contact Alternative */
