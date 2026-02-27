@@ -233,7 +233,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
   display: block;
   transition: transform 0.4s ease;
   background-color: #f0f0f0;
@@ -374,7 +373,7 @@
     padding: 3rem 1.5rem;
   }
 
-  /* Carousel responsive styles - taller cards to show more food */
+  /* Carousel responsive styles */
   .carousel-wrapper {
     padding: 1.5rem 0;
   }
@@ -385,13 +384,8 @@
   }
 
   .carousel-card {
-    flex: 0 0 200px;
-    height: 260px;
-    border-radius: 16px;
-  }
-
-  .carousel-image {
-    object-position: center top;
+    flex: 0 0 220px;
+    height: 220px;
   }
 
   .carousel-label {
@@ -448,7 +442,7 @@
     font-size: 1.05rem;
   }
 
-  /* Carousel responsive styles for medium phones - portrait cards */
+  /* Carousel responsive styles for medium phones */
   .carousel-wrapper {
     padding: 1rem 0;
   }
@@ -459,13 +453,9 @@
   }
 
   .carousel-card {
-    flex: 0 0 160px;
-    height: 220px;
+    flex: 0 0 180px;
+    height: 180px;
     border-radius: 14px;
-  }
-
-  .carousel-image {
-    object-position: center top;
   }
 
   .carousel-label {
@@ -506,7 +496,7 @@
     font-size: 1rem;
   }
 
-  /* Carousel responsive styles for small phones - taller portrait cards */
+  /* Carousel responsive styles for small phones */
   .carousel-wrapper {
     padding: 0.75rem 0;
   }
@@ -517,13 +507,9 @@
   }
 
   .carousel-card {
-    flex: 0 0 140px;
-    height: 190px;
+    flex: 0 0 150px;
+    height: 150px;
     border-radius: 12px;
-  }
-
-  .carousel-image {
-    object-position: center top;
   }
 
   .carousel-label {
