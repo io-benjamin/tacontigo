@@ -64,11 +64,11 @@ function About() {
         </div>
       </div>
     <div className='image-container'>
-          <img src={event1} alt='event 1'/>
-          <img src={event2} alt='event 2'/>
-          <img src={event3} alt='event 3'/>
-          <img src={event4} alt='event 4'/>
-          <img src={event5} alt='event 5'/>
+          <img src={event1} alt='event 1' onClick={() => openModal(event1)} style={{cursor: 'pointer'}}/>
+          <img src={event2} alt='event 2' onClick={() => openModal(event2)} style={{cursor: 'pointer'}}/>
+          <img src={event3} alt='event 3' onClick={() => openModal(event3)} style={{cursor: 'pointer'}}/>
+          <img src={event4} alt='event 4' onClick={() => openModal(event4)} style={{cursor: 'pointer'}}/>
+          <img src={event5} alt='event 5' onClick={() => openModal(event5)} style={{cursor: 'pointer'}}/>
     </div>
     <div className="About-inquiry">
           <h2>Want our food trucks at your event?</h2>

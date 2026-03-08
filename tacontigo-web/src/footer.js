@@ -28,7 +28,7 @@ const Footer = () => (
   </div>
     <div className="footer-note-container">
     <h3 className="footer-note">
-        © 2024 All Rights Reserved | Managed by <a href="https://estradab.dev" target="_blank" rel="noopener noreferrer">Benjamin Estrada</a>
+        © 2024 All Rights Reserved | Managed by <a href="https://tryvera.dev" target="_blank" rel="noopener noreferrer">Benjamin Estrada</a>
       </h3>
     </div>
   </>
