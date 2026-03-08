@@ -1,7 +1,7 @@
 // src/HeroSection.jsx
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import "./HeroSection.css"; // we'll define this next
+import "./HeroSection.css";
 
 const HeroSection = () => {
   const heroRef = useRef(null);
@@ -9,15 +9,12 @@ const HeroSection = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (heroRef.current) {
-        // Add 'scrolled' class when user scrolls down even a little
         if (window.scrollY > 50) {
           heroRef.current.classList.add('scrolled');
         } else {
           heroRef.current.classList.remove('scrolled');
         }
         
-        // Add 'show-text' class when user scrolls down more to reveal text near video
-        // Once added, it stays (doesn't remove when scrolling back up)
         if (window.scrollY > 150) {
           heroRef.current.classList.add('show-text');
         }
@@ -30,31 +27,20 @@ const HeroSection = () => {
 
   return (
     <section className="hero" ref={heroRef}>
-      {/* Background animation */}
-      <video
-        className="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        {/* Use your actual file: Animation.mp4 in /public */}
-        <source src="/Animation.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Animated WebP background - autoplays everywhere, no play button needed */}
+      <img
+        className="hero-animation"
+        src="/animation.webp"
+        alt=""
+        aria-hidden="true"
+      />
 
-      {/* Simple text on top - no boxes, no borders */}
+      {/* Simple text on top */}
       <div className="hero-text">
-        {/* Option A - Family-focused */}
         <h1 className="hero-title">Food that feels like family.</h1>
         <p className="hero-subtitle">
           Made with love. Served with pride.
         </p>
-        
-        {/* Option B - Quality-focused (commented out, swap when needed):
-        <h1 className="hero-title">Real tacos. Zero compromises.</h1>
-        <p className="hero-subtitle"></p>
-        */}
 
         <div className="hero-buttons">
           <a

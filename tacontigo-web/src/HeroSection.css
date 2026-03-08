@@ -12,8 +12,8 @@
   background-color: #F5EFE6; /* Cream background when scrolled */
 }
 
-/* Video with responsive dimensions, centered */
-.hero-video {
+/* Animated WebP with responsive dimensions, centered */
+.hero-animation {
   position: absolute;
   width: min(700px, 90vw);
   height: min(700px, 90vw);
@@ -26,10 +26,11 @@
   opacity: 1;
   transition: opacity 0.6s ease;
   z-index: 1;
+  pointer-events: none;
 }
 
-.hero.scrolled .hero-video {
-  opacity: 0;               /* Fade out video when scrolled */
+.hero.scrolled .hero-animation {
+  opacity: 0;               /* Fade out when scrolled */
 }
 
 
@@ -154,7 +155,7 @@
     padding-top: 80px;
   }
 
-  .hero-video {
+  .hero-animation {
     width: min(600px, 95vw);
     height: min(600px, 95vw);
   }
@@ -192,7 +193,7 @@
     padding-top: 70px;
   }
 
-  .hero-video {
+  .hero-animation {
     width: min(500px, 95vw);
     height: min(500px, 95vw);
   }
@@ -230,7 +231,7 @@
     padding-top: 60px;
   }
 
-  .hero-video {
+  .hero-animation {
     width: min(420px, 95vw);
     height: min(420px, 95vw);
   }
