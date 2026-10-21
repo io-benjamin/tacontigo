@@ -9,12 +9,17 @@ import "./HeroSection.css";
 const FRAMES = 92;
 const PHONE = 760; // px; matches the CSS breakpoint
 const src = (set, i) => `/hero/${set}/${String(i + 1).padStart(3, "0")}.webp`;
+// Stamp order is the slam order. Positions and tilt live in the CSS.
+const STAMPS = [
+  { id: "a", text: "¡PASELE PASELE!" },
+  { id: "b", text: "AQUI ESTA LO BUENO" },
+];
 const clamp = (v, a, b) => Math.min(1, Math.max(0, (v - a) / (b - a)));
 
 const HeroSection = () => {
   const scrollerRef = useRef(null);
   const canvasRef = useRef(null);
-  const phraseRef = useRef(null);
+  const stampsRef = useRef(null);
   const hintRef = useRef(null);
 
   useEffect(() => {
@@ -77,6 +82,11 @@ const HeroSection = () => {
       ctx.globalAlpha = 1;
       ctx.fillStyle = g;
       ctx.fillRect(0, y + h * 0.72, W, h * 0.29);
+      const top = ctx.createLinearGradient(0, y, 0, y + h * 0.12); // soften the photo's top edge under the header
+      top.addColorStop(0, "#0A2342");
+      top.addColorStop(1, "rgba(10,35,66,0)");
+      ctx.fillStyle = top;
+      ctx.fillRect(0, y - 1, W, h * 0.12 + 1);
     };
 
     function draw() {
@@ -94,13 +104,17 @@ const HeroSection = () => {
         fadePhoneEdge(a);
         ctx.globalAlpha = 1;
       }
-      // The payoff: once the salsa lands, the phrase invites you in.
-      const done = clamp(p, 0.82, 0.95);
-      phraseRef.current.style.opacity = done;
-      phraseRef.current.style.transform = `translateY(${(1 - done) * 16}px)`;
+      // The payoff: once the salsa lands, each stamp slams down in turn (big and faint → set, with a small overshoot).
+      stampsRef.current.querySelectorAll(".stamp").forEach((el, i) => {
+        const t = clamp(p, 0.8 + i * 0.035, 0.84 + i * 0.035);
+        const bounce = t < 1 ? 1 + (1 - t) * 0.9 - Math.sin(t * Math.PI) * 0.06 : 1;
+        el.style.setProperty("--k", bounce.toFixed(3));
+        el.style.setProperty("--o", t.toFixed(3));
+      });
       hintRef.current.style.opacity = 1 - clamp(p, 0, 0.12);
       // Light header text only while it sits over the navy hero.
-      document.body.classList.toggle("on-dark-hero", box.bottom > 80);
+      const header = document.querySelector(".site-header");
+      document.body.classList.toggle("on-dark-hero", box.bottom > (header ? header.offsetHeight / 2 : 40));
     }
 
     const onScroll = () => {
@@ -138,8 +152,8 @@ const HeroSection = () => {
           <p className="hero-eyebrow">Taquería · Chester, VA</p>
           <h1 className="hero-title">Tacos that go where you go.</h1>
           <p className="hero-sub">
-            Asada, pastor y pollo off the plancha, finished with our avocado-tomatillo salsa. Order ahead, or let us
-            cater your party.
+            Family recipes from Guadalajara: tacos, tortas, burritos and more, made fresh every day. Order ahead, or let
+            us cater your party.
           </p>
           <div className="hero-ctas">
             <a href="https://tinyurl.com/yckyxzuy" target="_blank" rel="noopener noreferrer" className="hero-btn primary">
@@ -151,11 +165,15 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Blanka has no accented capitals or comma, so the shown text drops them; screen readers get the real phrase. */}
-        <p className="hero-phrase" ref={phraseRef} aria-label="¡Pásele, pásele! Aquí está lo bueno.">
-          <span aria-hidden="true">¡PASELE PASELE!</span>
-          <span aria-hidden="true">AQUI ESTA LO BUENO.</span>
-        </p>
+        {/* Rubber stamps on the wall, slammed in one by one once the salsa lands. Blanka has no accented
+            capitals or comma, so the shown text drops them; screen readers get the real phrase once. */}
+        <div className="hero-stamps" ref={stampsRef} role="img" aria-label="¡Pásele, pásele! Aquí está lo bueno.">
+          {STAMPS.map((st) => (
+            <span key={st.id} className={`stamp stamp-${st.id}`} aria-hidden="true">
+              {st.text}
+            </span>
+          ))}
+        </div>
 
         <div className="hero-meta">
           <span><b>Tue–Sat</b> 11:30–8:30</span>

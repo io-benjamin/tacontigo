@@ -1,0 +1,56 @@
+/* Parent gets .has-stamp-wall. isolation makes z-index -1 paint above the parent's background but under all
+   its content, so no child (modals, sticky summaries, carousels) has to change. */
+.has-stamp-wall {
+  position: relative;
+  isolation: isolate;
+}
+
+.stamp-wall {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.wall-pair {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35em;
+  transform: rotate(var(--tilt));
+  font-size: clamp(0.85rem, 1.6vw, 1.35rem);
+}
+
+.wall-stamp {
+  display: inline-block;
+  padding: 0.35em 0.6em 0.25em;
+  border: 0.12em solid currentColor;
+  border-radius: 0.18em;
+  outline: 0.05em solid currentColor;
+  outline-offset: 0.12em;
+  font-family: 'Blanka Regular', system-ui;
+  line-height: 1;
+  white-space: nowrap;
+  -webkit-mask-image: var(--stamp-mask);
+  mask-image: var(--stamp-mask);
+  -webkit-mask-size: 300px;
+  mask-size: 300px;
+}
+
+.wall-stamp.big { font-size: 1.6em; }
+.wall-stamp.small { font-size: 0.95em; margin-left: 1.6em; transform: rotate(2deg); }
+
+/* On cream: navy and orange ink, barely there. */
+.stamp-wall-light .wall-stamp.big { color: rgba(10, 35, 66, 0.24); }
+.stamp-wall-light .wall-stamp.small { color: rgba(249, 115, 22, 0.32); }
+
+/* On navy: mustard and orange ink. */
+.stamp-wall-dark .wall-stamp.big { color: rgba(232, 180, 74, 0.3); }
+.stamp-wall-dark .wall-stamp.small { color: rgba(249, 115, 22, 0.32); }
+
+@media (max-width: 760px) {
+  .wall-pair { font-size: 0.8rem; }
+  .wall-pair:nth-child(even) { display: none; } /* narrow screens: half the pairs, so they don't pile up */
+}

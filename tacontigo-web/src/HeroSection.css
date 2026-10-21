@@ -36,7 +36,7 @@
   left: clamp(1.5rem, 4vw, 3rem);
   top: 50%;
   transform: translateY(-44%);
-  max-width: 560px;
+  max-width: min(660px, 44vw);
 }
 
 .hero-eyebrow {
@@ -58,7 +58,7 @@
 }
 
 .hero-sub {
-  margin: 1.4rem 0 2rem;
+  margin: 1.2rem 0 1.8rem;
   max-width: 440px;
   font-size: 1.05rem;
   line-height: 1.6;
@@ -102,30 +102,42 @@
   background: rgba(245, 239, 230, 0.08);
 }
 
-/* Lands in the empty navy above the tacos once the salsa is down. */
-.hero-phrase {
+/* Rubber stamps on the wall. Screen blend + worn-ink mask keep them on the navy and faint over the food. */
+.hero-stamps {
   position: absolute;
-  right: clamp(1.5rem, 6vw, 6rem);
-  top: 15vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-family: 'Blanka Regular', system-ui;
-  line-height: 1.05;
-  opacity: 0;
+  inset: 0;
   pointer-events: none;
 }
 
-.hero-phrase span:first-child {
-  color: #E8B44A;
-  font-size: clamp(2rem, 3.6vw, 3.4rem);
+.stamp {
+  --k: 1;
+  --o: 0;
+  --r: 0deg;
+  position: absolute;
+  display: inline-block;
+  padding: 0.35em 0.6em 0.25em;
+  border: 0.12em solid currentColor;
+  border-radius: 0.18em;
+  box-shadow: inset 0 0 0 0.06em transparent, 0 0 0 0.07em currentColor;
+  outline: 0.05em solid currentColor;
+  outline-offset: 0.12em;
+  font-family: 'Blanka Regular', system-ui;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: var(--o);
+  background: rgba(10, 35, 66, 0.6);
+  transform: rotate(var(--r)) scale(var(--k));
+  -webkit-mask-image: var(--stamp-mask);
+  mask-image: var(--stamp-mask);
+  -webkit-mask-size: 300px;
+  mask-size: 300px;
 }
 
-.hero-phrase span:last-child {
-  color: #F5EFE6;
-  font-size: clamp(1.1rem, 1.9vw, 1.8rem);
-}
+/* Reading order: ¡PASELE PASELE! first (upper left of the open wall), then AQUI ESTA LO BUENO below and to the right. */
+/* Right side, in the navy above the tacos. The translucent navy backing keeps both lines readable even where
+   the checker paper or steam sits behind them. */
+.stamp-a { --r: -5deg; color: #E8B44A; font-size: clamp(1.5rem, 2.6vw, 2.6rem); top: calc(56px + 2.5vh); right: clamp(1.5rem, 6vw, 6rem); }
+.stamp-b { --r: 3deg;  color: #f97316; font-size: clamp(0.95rem, 1.55vw, 1.5rem); top: calc(56px + 2.5vh + clamp(3rem, 5.4vw, 5rem)); right: clamp(2.5rem, 8vw, 8rem); }
 
 .hero-meta {
   position: absolute;
@@ -165,6 +177,16 @@ body.on-dark-hero .site-header .social-link:hover {
   color: #f97316;
 }
 
+/* Small laptops and tablets: the photo crowds the text column, so darken the left side further. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .hero-shade {
+    background:
+      linear-gradient(90deg, #0A2342 0%, rgba(10, 35, 66, 0.92) 38%, rgba(10, 35, 66, 0) 62%),
+      linear-gradient(0deg, rgba(10, 35, 66, 0.7) 0%, rgba(10, 35, 66, 0) 22%),
+      linear-gradient(180deg, rgba(10, 35, 66, 0.9) 0%, rgba(10, 35, 66, 0) 14%);
+  }
+}
+
 @media (max-width: 760px) {
   .hero-shade {
     background: linear-gradient(0deg, #0A2342 0%, rgba(10, 35, 66, 0.9) 40%, rgba(10, 35, 66, 0) 62%);
@@ -172,6 +194,7 @@ body.on-dark-hero .site-header .social-link:hover {
   .hero-copy {
     left: 1.25rem;
     right: 1.25rem;
+    max-width: none;
     top: auto;
     bottom: 5.5rem;
     transform: none;
@@ -183,13 +206,9 @@ body.on-dark-hero .site-header .social-link:hover {
     font-size: 0.95rem;
     margin: 1rem 0 1.4rem;
   }
-  .hero-phrase {
-    left: 1.25rem;
-    right: 1.25rem;
-    top: 11vh;
-    align-items: center;
-    text-align: center;
-  }
+  .stamp-a { top: 9vh; right: 5vw; font-size: 1.6rem; }
+  .stamp-b { top: 15.5vh; right: 8vw; font-size: 0.95rem; }
+
   .hero-meta {
     left: 1.25rem;
     gap: 1rem;

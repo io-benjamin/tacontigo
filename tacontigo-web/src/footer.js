@@ -1,9 +1,11 @@
 import React from 'react';
 import './footer.css';
+import StampWall from './StampWall';
 
 const Footer = () => (
   <>
-  <div className="footer-sections">
+  <div className="footer-sections has-stamp-wall">
+    <StampWall pairs={2} />
     <div className="section">
       <h2>Locations</h2>
       <p><a href="https://www.google.com/maps/dir//Tacontigo/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89b1093d1559f871:0xabac91d8e1d702b1?sa=X&ved=2ahUKEwj27fycubODAxVkVjUKHYSkBdEQ9Rd6BAg4EAA&hl=en">13900 US-1 Chester, VA, 23831</a></p>
