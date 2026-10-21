@@ -1,263 +1,265 @@
+/* Scroll-scrubbed taco hero. The section is tall; the stage sticks while the frames play. */
 .hero {
   position: relative;
-  width: 100%;
+  height: 300vh;
+  background: #0A2342;
+  color: #F5EFE6;
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.hero-stage {
+  position: sticky;
+  top: 0;
   height: 100vh;
   overflow: hidden;
-  background-color: #fcfcfc;
-  transition: background-color 0.6s ease;
-  padding-top: 100px;
 }
 
-.hero.scrolled {
-  background-color: #F5EFE6; /* Cream background when scrolled */
-}
-
-/* Animated WebP with responsive dimensions, centered */
-.hero-animation {
-  position: absolute;
-  width: min(700px, 90vw);
-  height: min(700px, 90vw);
-  max-width: 700px;
-  max-height: 700px;
-  object-fit: cover;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-  transition: opacity 0.6s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero.scrolled .hero-animation {
-  opacity: 0;               /* Fade out when scrolled */
-}
-
-
-/* Centered text over the video, no background block */
-.hero-text {
+.hero-canvas {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #0A2342;
-  padding: 0 clamp(1rem, 4vw, 1.5rem);
-  z-index: 0;               /* Behind video initially */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.2s ease, transform 0.2s ease, color 0.6s ease, z-index 0s 0.2s;
+  width: 100%;
+  height: 100%;
 }
 
-/* Show text when scrolled and positioned on top of video */
-.hero.show-text .hero-text {
-  opacity: 1;
-  transform: translateY(0);
-  justify-content: flex-end;
-  padding-bottom: clamp(100px, 20vh, 175px);
-  z-index: 3;               /* Above video when scrolled */
-  transition: opacity 0.5s ease, transform 0.5s ease, color 0.6s ease, z-index 0s;
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #0A2342 0%, rgba(10, 35, 66, 0.85) 24%, rgba(10, 35, 66, 0) 50%),
+    linear-gradient(0deg, rgba(10, 35, 66, 0.7) 0%, rgba(10, 35, 66, 0) 22%),
+    linear-gradient(180deg, rgba(10, 35, 66, 0.9) 0%, rgba(10, 35, 66, 0) 14%);
 }
 
-.hero.scrolled .hero-text {
-  color: #0A2342;
+.hero-copy {
+  position: absolute;
+  left: clamp(1.5rem, 4vw, 3rem);
+  top: 50%;
+  transform: translateY(-44%);
+  max-width: min(660px, 44vw);
 }
 
-/* Premium hero title */
-.hero-title {
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  letter-spacing: 0.06em;
-  text-transform: none;
-  margin: 0 0 0.25rem;
-  font-weight: 800;
-  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  color: #ffffff;
-  transition: color 0.8s ease, text-shadow 0.8s ease;
-}
-
-.hero.show-text .hero-title {
-  color: #0A2342;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.hero-subtitle {
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
-  max-width: 520px;
-  margin: 0 0 2rem;
-  font-weight: 400;
-  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  color: #ffffff;
-  line-height: 1.6;
-  transition: color 0.8s ease, text-shadow 0.8s ease;
-}
-
-.hero.show-text .hero-subtitle {
-  color: #0A2342;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Buttons - simple, no borders on the container */
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-}
-
-/* Minimal pill-style buttons */
-.hero-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem 1.8rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
+.hero-eyebrow {
+  margin: 0 0 1.1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f97316;
   font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Solid button with premium glow */
+.hero-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 5.4vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #F5EFE6;
+}
+
+.hero-sub {
+  margin: 1.2rem 0 1.8rem;
+  max-width: 440px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(245, 239, 230, 0.8);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.95rem 1.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
 .hero-btn.primary {
   background: #f97316;
-  color: #0b1120;
-  box-shadow: 0 0 40px rgba(249, 115, 22, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
+  color: #0A2342;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.25);
 }
 
 .hero-btn.primary:hover {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 0 60px rgba(249, 115, 22, 0.5), 0 12px 32px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.35);
 }
 
-/* Ghost button with premium styling - more visible */
 .hero-btn.ghost {
-  background: rgba(255, 255, 255, 0.15);  /* Subtle white background for visibility */
-  color: #0A2342;  /* Dark navy text */
-  border: 2px solid rgba(249, 250, 251, 0.8);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(8px);
+  color: #F5EFE6;
+  border: 1.5px solid rgba(245, 239, 230, 0.4);
 }
 
 .hero-btn.ghost:hover {
-  transform: translateY(-2px) scale(1.01);
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(249, 250, 251, 1);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-  color: #0A2342;  /* Keep dark navy on hover */
+  background: rgba(245, 239, 230, 0.08);
 }
 
-/* Mobile tweaks */
-@media (max-width: 768px) {
-  .hero {
-    height: 90vh;
-    padding-top: 80px;
-  }
+/* Rubber stamps on the wall. Screen blend + worn-ink mask keep them on the navy and faint over the food. */
+.hero-stamps {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 
-  .hero-animation {
-    width: min(600px, 95vw);
-    height: min(600px, 95vw);
-  }
+.stamp {
+  --k: 1;
+  --o: 0;
+  --r: 0deg;
+  position: absolute;
+  display: inline-block;
+  padding: 0.35em 0.6em 0.25em;
+  border: 0.12em solid currentColor;
+  border-radius: 0.18em;
+  box-shadow: inset 0 0 0 0.06em transparent, 0 0 0 0.07em currentColor;
+  outline: 0.05em solid currentColor;
+  outline-offset: 0.12em;
+  font-family: 'Blanka Regular', system-ui;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: var(--o);
+  background: rgba(10, 35, 66, 0.6);
+  transform: rotate(var(--r)) scale(var(--k));
+  -webkit-mask-image: var(--stamp-mask);
+  mask-image: var(--stamp-mask);
+  -webkit-mask-size: 300px;
+  mask-size: 300px;
+}
 
-  .hero-title {
-    font-size: clamp(2rem, 8vw, 2.8rem);
-    letter-spacing: 0.08em;
-  }
+/* Reading order: ¡PASELE PASELE! first (upper left of the open wall), then AQUI ESTA LO BUENO below and to the right. */
+/* Right side, in the navy above the tacos. The translucent navy backing keeps both lines readable even where
+   the checker paper or steam sits behind them. */
+.stamp-a { --r: -5deg; color: #E8B44A; font-size: clamp(1.5rem, 2.6vw, 2.6rem); top: calc(56px + 2.5vh); right: clamp(1.5rem, 6vw, 6rem); }
+.stamp-b { --r: 3deg;  color: #f97316; font-size: clamp(0.95rem, 1.55vw, 1.5rem); top: calc(56px + 2.5vh + clamp(3rem, 5.4vw, 5rem)); right: clamp(2.5rem, 8vw, 8rem); }
 
-  .hero-subtitle {
-    font-size: clamp(0.9rem, 3.5vw, 1rem);
-  }
+.hero-meta {
+  position: absolute;
+  left: clamp(1.5rem, 4vw, 3rem);
+  bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+  font-size: 0.875rem;
+  color: rgba(245, 239, 230, 0.7);
+}
 
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    width: auto;
-    margin: 0 auto;
-  }
+.hero-meta b {
+  color: #F5EFE6;
+  font-weight: 600;
+}
 
-  .hero-btn {
-    width: auto;
-    padding: 0.65rem 1.5rem;
-    font-size: 0.9rem;
-    text-align: center;
-    white-space: nowrap;
+.hero-hint {
+  position: absolute;
+  right: clamp(1.5rem, 4vw, 3rem);
+  bottom: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 239, 230, 0.55);
+}
+
+/* Header over the navy hero: light text. Toggled by HeroSection while the hero is under the header. */
+body.on-dark-hero .site-header .nav-link,
+body.on-dark-hero .site-header .banner-link,
+body.on-dark-hero .site-header .social-link {
+  color: #F5EFE6;
+  text-shadow: none;
+}
+
+body.on-dark-hero .site-header .nav-link:hover,
+body.on-dark-hero .site-header .social-link:hover {
+  color: #f97316;
+}
+
+/* Small laptops and tablets: the photo crowds the text column, so darken the left side further. */
+@media (min-width: 761px) and (max-width: 1180px), (orientation: landscape) and (max-height: 520px) {
+  .hero-shade {
+    background:
+      linear-gradient(90deg, #0A2342 0%, rgba(10, 35, 66, 0.92) 38%, rgba(10, 35, 66, 0) 62%),
+      linear-gradient(0deg, rgba(10, 35, 66, 0.7) 0%, rgba(10, 35, 66, 0) 22%),
+      linear-gradient(180deg, rgba(10, 35, 66, 0.9) 0%, rgba(10, 35, 66, 0) 14%);
   }
 }
 
-@media (max-width: 640px) {
-  .hero {
-    height: 85vh;
-    padding-top: 70px;
+@media (max-width: 760px) and (orientation: portrait) {
+  .hero-shade {
+    background: linear-gradient(0deg, #0A2342 0%, rgba(10, 35, 66, 0.9) 40%, rgba(10, 35, 66, 0) 62%);
   }
-
-  .hero-animation {
-    width: min(500px, 95vw);
-    height: min(500px, 95vw);
+  .hero-copy {
+    left: 1.25rem;
+    right: 1.25rem;
+    max-width: none;
+    top: auto;
+    bottom: 5.5rem;
+    transform: none;
   }
-
   .hero-title {
-    font-size: clamp(1.75rem, 9vw, 2.5rem);
-    letter-spacing: 0.1em;
+    font-size: clamp(2.2rem, 10vw, 2.9rem);
   }
-
-  .hero-subtitle {
-    font-size: clamp(0.85rem, 4vw, 0.95rem);
+  .hero-sub {
+    font-size: 0.95rem;
+    margin: 1rem 0 1.4rem;
   }
+  .stamp-a { top: 9vh; right: 5vw; font-size: 1.6rem; }
+  .stamp-b { top: 15.5vh; right: 8vw; font-size: 0.95rem; }
 
-  .hero-buttons {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: auto;
-    margin: 0 auto;
-    gap: 0.75rem;
+  .hero-meta {
+    left: 1.25rem;
+    gap: 1rem;
+    font-size: 0.75rem;
+    bottom: 1.25rem;
   }
-
-  .hero-btn {
-    width: auto;
-    padding: 0.6rem 1.3rem;
-    font-size: 0.85rem;
-    text-align: center;
-    white-space: nowrap;
+  .hero-hint {
+    display: none;
   }
 }
 
-@media (max-width: 480px) {
-  .hero {
-    height: 80vh;
-    padding-top: 60px;
-  }
+/* Short phones (e.g. 320x568): smaller stamps sitting higher, a tighter text block. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 780px) {
+  .stamp-a { top: calc(56px + 1vh); font-size: 1.25rem; }
+  .stamp-b { top: calc(56px + 1vh + 2.4rem); font-size: 0.8rem; }
+  .hero-copy { bottom: 4rem; }
+  .hero-eyebrow { margin-bottom: 0.6rem; }
+  .hero-title { font-size: 1.9rem; }
+  .hero-sub { font-size: 0.85rem; margin: 0.6rem 0 1rem; }
+  .hero-btn { padding: 0.7rem 1.3rem; font-size: 0.9rem; }
+}
 
-  .hero-animation {
-    width: min(420px, 95vw);
-    height: min(420px, 95vw);
+/* Phones turned sideways: wide but very short. Compact everything; hours live in the footer anyway. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero-copy {
+    max-width: min(460px, 46vw);
+    top: calc(56px + 0.8rem);
+    transform: none;
   }
+  .hero-eyebrow { margin-bottom: 0.4rem; font-size: 0.68rem; }
+  .hero-title { font-size: clamp(1.6rem, 3.6vw, 2.3rem); }
+  .hero-sub { font-size: 0.82rem; line-height: 1.45; margin: 0.5rem 0 0.8rem; }
+  .hero-btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+  .hero-meta, .hero-hint { display: none; }
+  .stamp { background: rgba(10, 35, 66, 0.85); } /* the checker paper sits right behind them here */
+  .stamp-a { top: calc(56px + 0.6rem); font-size: 1.2rem; right: 3vw; }
+  .stamp-b { top: calc(56px + 0.6rem + 2.4rem); font-size: 0.78rem; right: 5vw; }
+}
 
-  .hero-title {
-    font-size: clamp(1.5rem, 10vw, 2rem);
-  }
+/* Folded phones: the narrowest screens get a smaller headline so it stays on two lines. */
+@media (max-width: 300px) and (orientation: portrait) {
+  .hero-title { font-size: 1.6rem; }
+  .hero-sub { font-size: 0.8rem; }
+  .hero-meta { flex-wrap: wrap; gap: 0.3rem 0.8rem; }
+}
 
-  .hero-subtitle {
-    font-size: clamp(0.8rem, 4.5vw, 0.9rem);
-  }
 
-  .hero-buttons {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: auto;
-    margin: 0 auto;
-    gap: 0.75rem;
-  }
-
-  .hero-btn {
-    width: auto;
-    padding: 0.55rem 1.2rem;
-    font-size: 0.8rem;
-    text-align: center;
-    white-space: nowrap;
-  }
+/* Very short phones (e.g. 320x568): the hours line goes (it's in the footer) so the photo keeps its room. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 620px) {
+  .hero-meta { display: none; }
+  .hero-copy { bottom: 1.4rem; }
+  .stamp-a { font-size: 1.1rem; }
+  .stamp-b { top: calc(56px + 1vh + 2.1rem); font-size: 0.72rem; }
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Footer from './footer.js';
 import HeroSection from "./HeroSection";
+import StampWall from "./StampWall";
 
 // Food images imports
 import image20 from './assets/food-images/20.jpg';
@@ -48,7 +49,8 @@ function HomePage() {
       <HeroSection />
 
       {/* Food Gallery Section - Infinite Scrolling Carousel */}
-      <section className="gallery-section">
+      <section className="gallery-section has-stamp-wall">
+        <StampWall />
         <div className="gallery-header">
           <h2>Our Favorites</h2>
           <p>Some of our delicious menu items</p>
@@ -73,7 +75,8 @@ function HomePage() {
       </section>
 
       {/* CTA Section for Catering */}
-      <section className="catering-cta-section">
+      <section className="catering-cta-section has-stamp-wall">
+        <StampWall tone="dark" pairs={3} />
         <div className="catering-content">
           <h2>Planning an Event?</h2>
           <p>

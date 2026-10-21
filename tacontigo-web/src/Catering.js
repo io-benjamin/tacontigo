@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Catering.css';
+import StampWall from './StampWall';
 import Footer from './footer';
 
 const BIN_OPTIONS = [
@@ -263,7 +264,8 @@ TOTAL ESTIMATED PRICE: $${totalPrice.toFixed(2)}
   };
 
   return (
-    <div className="catering-page">
+    <div className="catering-page has-stamp-wall">
+      <StampWall />
       <div className="catering-hero">
         <div className="hero-content">
           <h1>Catering Services</h1>

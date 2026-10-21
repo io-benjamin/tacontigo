@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './About.css';
+import StampWall from './StampWall';
 import Footer from './footer.js';
 import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
@@ -42,7 +43,8 @@ function About() {
 
   
   return (
-    <div className="About-content">
+    <div className="About-content has-stamp-wall">
+      <StampWall />
       <div className="About-inner">
         <h1>About Us</h1>
         
