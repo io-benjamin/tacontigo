@@ -178,7 +178,7 @@ body.on-dark-hero .site-header .social-link:hover {
 }
 
 /* Small laptops and tablets: the photo crowds the text column, so darken the left side further. */
-@media (min-width: 761px) and (max-width: 1180px) {
+@media (min-width: 761px) and (max-width: 1180px), (orientation: landscape) and (max-height: 520px) {
   .hero-shade {
     background:
       linear-gradient(90deg, #0A2342 0%, rgba(10, 35, 66, 0.92) 38%, rgba(10, 35, 66, 0) 62%),
@@ -187,7 +187,7 @@ body.on-dark-hero .site-header .social-link:hover {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px) and (orientation: portrait) {
   .hero-shade {
     background: linear-gradient(0deg, #0A2342 0%, rgba(10, 35, 66, 0.9) 40%, rgba(10, 35, 66, 0) 62%);
   }
@@ -218,4 +218,48 @@ body.on-dark-hero .site-header .social-link:hover {
   .hero-hint {
     display: none;
   }
+}
+
+/* Short phones (e.g. 320x568): smaller stamps sitting higher, a tighter text block. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 780px) {
+  .stamp-a { top: calc(56px + 1vh); font-size: 1.25rem; }
+  .stamp-b { top: calc(56px + 1vh + 2.4rem); font-size: 0.8rem; }
+  .hero-copy { bottom: 4rem; }
+  .hero-eyebrow { margin-bottom: 0.6rem; }
+  .hero-title { font-size: 1.9rem; }
+  .hero-sub { font-size: 0.85rem; margin: 0.6rem 0 1rem; }
+  .hero-btn { padding: 0.7rem 1.3rem; font-size: 0.9rem; }
+}
+
+/* Phones turned sideways: wide but very short. Compact everything; hours live in the footer anyway. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero-copy {
+    max-width: min(460px, 46vw);
+    top: calc(56px + 0.8rem);
+    transform: none;
+  }
+  .hero-eyebrow { margin-bottom: 0.4rem; font-size: 0.68rem; }
+  .hero-title { font-size: clamp(1.6rem, 3.6vw, 2.3rem); }
+  .hero-sub { font-size: 0.82rem; line-height: 1.45; margin: 0.5rem 0 0.8rem; }
+  .hero-btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+  .hero-meta, .hero-hint { display: none; }
+  .stamp { background: rgba(10, 35, 66, 0.85); } /* the checker paper sits right behind them here */
+  .stamp-a { top: calc(56px + 0.6rem); font-size: 1.2rem; right: 3vw; }
+  .stamp-b { top: calc(56px + 0.6rem + 2.4rem); font-size: 0.78rem; right: 5vw; }
+}
+
+/* Folded phones: the narrowest screens get a smaller headline so it stays on two lines. */
+@media (max-width: 300px) and (orientation: portrait) {
+  .hero-title { font-size: 1.6rem; }
+  .hero-sub { font-size: 0.8rem; }
+  .hero-meta { flex-wrap: wrap; gap: 0.3rem 0.8rem; }
+}
+
+
+/* Very short phones (e.g. 320x568): the hours line goes (it's in the footer) so the photo keeps its room. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 620px) {
+  .hero-meta { display: none; }
+  .hero-copy { bottom: 1.4rem; }
+  .stamp-a { font-size: 1.1rem; }
+  .stamp-b { top: calc(56px + 1vh + 2.1rem); font-size: 0.72rem; }
 }

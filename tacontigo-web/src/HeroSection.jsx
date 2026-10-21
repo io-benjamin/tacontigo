@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 import "./HeroSection.css";
 
 const FRAMES = 92;
-const PHONE = 760; // px; matches the CSS breakpoint
+// Upright phones get the stacked layout and pre-cropped frames; phones on their side use the wide layout.
+// Must match the CSS media queries in HeroSection.css.
+const PHONE_QUERY = "(max-width: 760px) and (orientation: portrait)";
 const src = (set, i) => `/hero/${set}/${String(i + 1).padStart(3, "0")}.webp`;
 // Stamp order is the slam order. Positions and tilt live in the CSS.
 const STAMPS = [
@@ -21,15 +23,16 @@ const HeroSection = () => {
   const canvasRef = useRef(null);
   const stampsRef = useRef(null);
   const hintRef = useRef(null);
+  const copyRef = useRef(null);
 
   useEffect(() => {
     const scroller = scrollerRef.current;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const phone = () => window.innerWidth <= PHONE;
-    const set = phone() ? "m" : "d";
-    const imgs = new Array(FRAMES);
+    const phone = () => window.matchMedia(PHONE_QUERY).matches;
+    let set = phone() ? "m" : "d";
+    let imgs = new Array(FRAMES);
     let raf = 0;
 
     const load = (i) => {
@@ -40,11 +43,12 @@ const HeroSection = () => {
       imgs[i] = im;
     };
     // First frame first, then coarse-to-fine so any scroll position has a near frame early.
-    if (reduced) load(FRAMES - 1);
-    else {
+    const loadAll = () => {
+      if (reduced) return load(FRAMES - 1);
       load(0);
       for (let step = 8; step >= 1; step >>= 1) for (let i = 0; i < FRAMES; i += step) if (!imgs[i]) load(i);
-    }
+    };
+    loadAll();
     const ready = (im) => im && im.complete && im.naturalWidth > 0;
     const nearest = (k) => {
       for (let d = 0; d < FRAMES; d++) {
@@ -64,24 +68,48 @@ const HeroSection = () => {
       const W = canvas.width, H = canvas.height;
       ctx.globalAlpha = alpha;
       if (phone()) {
-        // Phone frames are already cropped to the basket: fit the width, sit near the top.
-        const s = (W / im.width) * 1.08, w = im.width * s, h = im.height * s;
-        ctx.drawImage(im, (W - w) / 2, H * 0.09, w, h);
+        // Phone frames are already cropped to the basket: fill the width, but never reach past the top of the
+        // text block (short phones would otherwise put the headline on the tacos).
+        const { y, s } = phoneBox(im);
+        const w = im.width * s, h = im.height * s;
+        ctx.drawImage(im, (W - w) / 2, y, w, h);
       } else {
         const s = Math.max(W / im.width, H / im.height), w = im.width * s, h = im.height * s;
         ctx.drawImage(im, (W - w) * 0.6, (H - h) * 0.5, w, h);
       }
     };
 
+    // Where the phone image goes: from just under the header down to a little past the top of the text.
+    const phoneBox = (im) => {
+      const W = canvas.width, H = canvas.height, k = W / canvas.clientWidth;
+      const y = H * 0.09;
+      const copyTop = copyRef.current ? copyRef.current.getBoundingClientRect().top * k : H * 0.55;
+      const room = copyTop + 24 * k - y; // the bottom fade can tuck under the eyebrow line
+      const s = Math.min((W / im.width) * 1.08, room / im.height);
+      return { y, s };
+    };
+
     const fadePhoneEdge = (im) => {
       if (!phone()) return;
-      const W = canvas.width, H = canvas.height, h = im.height * (W / im.width) * 1.08, y = H * 0.09;
+      const W = canvas.width, { y, s } = phoneBox(im), h = im.height * s;
       const g = ctx.createLinearGradient(0, y + h * 0.72, 0, y + h);
       g.addColorStop(0, "rgba(10,35,66,0)");
       g.addColorStop(1, "#0A2342");
       ctx.globalAlpha = 1;
       ctx.fillStyle = g;
       ctx.fillRect(0, y + h * 0.72, W, h * 0.29);
+      const w = im.width * s, x0 = (W - w) / 2;
+      if (x0 > 1) {
+        // Short phones shrink the photo below full width: fade its sides into the navy instead of hard edges.
+        const f = Math.min(w * 0.18, x0 + w * 0.12);
+        for (const [a, b] of [[x0, x0 + f], [x0 + w, x0 + w - f]]) {
+          const g2 = ctx.createLinearGradient(a, 0, b, 0);
+          g2.addColorStop(0, "#0A2342");
+          g2.addColorStop(1, "rgba(10,35,66,0)");
+          ctx.fillStyle = g2;
+          ctx.fillRect(Math.min(a, b) - 1, y, f + 2, h);
+        }
+      }
       const top = ctx.createLinearGradient(0, y, 0, y + h * 0.12); // soften the photo's top edge under the header
       top.addColorStop(0, "#0A2342");
       top.addColorStop(1, "rgba(10,35,66,0)");
@@ -122,6 +150,13 @@ const HeroSection = () => {
       raf = requestAnimationFrame(draw);
     };
     const onResize = () => {
+      const next = phone() ? "m" : "d";
+      if (next !== set) {
+        // Rotated between upright and sideways: switch to the frame set made for that layout.
+        set = next;
+        imgs = new Array(FRAMES);
+        loadAll();
+      }
       size();
       draw();
     };
@@ -148,7 +183,7 @@ const HeroSection = () => {
         />
         <div className="hero-shade" aria-hidden="true" />
 
-        <div className="hero-copy">
+        <div className="hero-copy" ref={copyRef}>
           <p className="hero-eyebrow">Taquería · Chester, VA</p>
           <h1 className="hero-title">Tacos that go where you go.</h1>
           <p className="hero-sub">

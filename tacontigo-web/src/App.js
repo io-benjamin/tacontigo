@@ -16,7 +16,7 @@ function App() {
           <div className="site-header-inner">
             {/* Left: Navigation Links */}
             <nav className="nav-left">
-              <Link to="/" className="nav-link">Home</Link>
+              <Link to="/" className="nav-link nav-home">Home</Link>
               <a 
                 href={menuImage} 
                 target="_blank" 

@@ -50,7 +50,7 @@
 .stamp-wall-dark .wall-stamp.big { color: rgba(232, 180, 74, 0.3); }
 .stamp-wall-dark .wall-stamp.small { color: rgba(249, 115, 22, 0.32); }
 
-@media (max-width: 760px) {
+@media (max-width: 760px) and (orientation: portrait) {
   .wall-pair { font-size: 0.8rem; }
   .wall-pair:nth-child(even) { display: none; } /* narrow screens: half the pairs, so they don't pile up */
 }

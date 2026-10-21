@@ -51,12 +51,19 @@
     flex: 1;
     padding: 10px;
     text-align: center; 
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* The email is wider than a 360px phone; let it wrap instead of stretching the page sideways. */
+  .section p {
+    overflow-wrap: anywhere;
   }
 
   .divider {
     border-bottom: 2px dotted navy;
     width: 90%;
-    margin: 0 20px;
+    margin: 0 auto; /* was 0 20px: 90% + 40px is wider than a small phone */
   }
 
   .footer-note-container {

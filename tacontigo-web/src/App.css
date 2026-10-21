@@ -21,6 +21,7 @@
 }
 
 .site-header-inner {
+  box-sizing: border-box; /* padding inside the width, so small phones don't scroll sideways */
   max-width: 1120px;
   margin: 0 auto;
   padding: 0.75rem 1.25rem;
@@ -251,10 +252,16 @@
     letter-spacing: 0.2em;
   }
 
-  /* Hide Order button and social icons on mobile */
-  .nav-btn.primary,
-  .social-link {
+  /* Phones: socials and "Home" go (the logo already links home); a compact Order button stays. */
+  .social-link,
+  .nav-home {
     display: none;
+  }
+
+  .nav-btn.primary {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    box-shadow: 0 0 16px rgba(249, 115, 22, 0.25);
   }
 
   .site-header-inner {
@@ -304,4 +311,36 @@
     font-size: 0.8rem;
     letter-spacing: 0.12em;
   }
+
+  .nav-btn.primary {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
+  }
 }
+
+/* Folded phones (Galaxy Fold ~280px): tighten the logo and Order so nothing touches. */
+@media (max-width: 340px) {
+  .site-header-inner {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .banner {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+
+  .nav-left .nav-link,
+  .nav-right .nav-link {
+    font-size: 0.66rem;
+  }
+
+  .nav-right {
+    gap: 0.3rem;
+  }
+
+  .nav-btn.primary {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.66rem;
+  }
+}
+
