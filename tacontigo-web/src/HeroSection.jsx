@@ -191,8 +191,11 @@ const HeroSection = () => {
             us cater your party.
           </p>
           <div className="hero-ctas">
-            <a href="https://tinyurl.com/yckyxzuy" target="_blank" rel="noopener noreferrer" className="hero-btn primary">
+            <a href="https://toast.app/r/tacontigo-13900-us-1-chester-va-23831/order" target="_blank" rel="noopener noreferrer" className="hero-btn primary">
               Order now
+            </a>
+            <a href="https://tinyurl.com/yckyxzuy" target="_blank" rel="noopener noreferrer" className="hero-btn ghost">
+              DoorDash
             </a>
             <Link to="/Catering" className="hero-btn ghost">
               Plan catering →

@@ -40,7 +40,7 @@ function App() {
             <div className="nav-right">
               <Link to="/About" className="nav-link">About</Link>
               <a
-                href="https://tinyurl.com/yckyxzuy"
+                href="https://toast.app/r/tacontigo-13900-us-1-chester-va-23831/order"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nav-btn primary"
